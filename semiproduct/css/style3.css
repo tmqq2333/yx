@@ -1,0 +1,244 @@
+*{padding: 0; 
+margin: 0;
+}
+body{ font-family: Helvetica,arial, '微软雅黑', sans-serif;
+}
+img{ border:none; 
+font-size: 0; 
+display: block; 
+}
+.clear{clear: both;
+}
+.fl{float: left;
+}
+.fr{float: right;
+}
+a{ text-decoration: none; 
+color: black; 
+}
+li{ list-style: none; 
+}
+.construct{ width: 100%; 
+position: relative; 
+}
+.containers{ width: 96%; 
+margin: 0 auto; 
+position: relative; 
+padding: 0;
+}
+
+#bg{ width: 100%; 
+height: auto; 
+background:url('../image/shoes1.jpg'); 
+background-size: cover; 
+position: absolute; 
+left:0; 
+top: 0; 
+z-index: 0; 
+overflow:hidden;
+}
+.bg{width: 100%; 
+height: auto; 
+position: absolute;
+}
+#bg_01{background:url('../image/shoes1.jpg');
+background-size: cover;
+}
+#bg_02{background:url('../image/shoes2.jpg'); 
+background-size: cover;
+}
+#bg_03{background:url('../image/shoes12.jpg'); 
+background-size: cover;
+}
+#header{ height: 108px; 
+border-bottom: #c9c9c9 2px solid; 
+position: relative; 
+z-index: 10; 
+background:url('../image/nav_bg.png'); 
+background-repeat: repeat;
+}
+#header_logo{width: 206px; 
+height: 100px; 
+position: absolute; 
+top: 5px; 
+left: 75px; 
+background-image: url('../image/title1.png');
+background-repeat: no-repeat;
+}
+#header_nav{position: absolute; 
+top: 40px; 
+width: 100%;
+}
+#header_menu_list{width: auto; 
+height: 68px; 
+margin-left: 208px; 
+margin-bottom: 0;
+}
+.header_menu_list{width: 12%; 
+height: 68px; 
+float: left; 
+line-height: 68px; 
+text-align: center; 
+font-size: 18px; 
+color: #8e8e8e; 
+position: relative;
+}
+.header_menu_list_checked{
+border-bottom: #009cad 2px solid;
+}
+
+.header_menu_list a{ height: 68px; 
+width: 100%; 
+color:#fff; 
+display: inline-block; 
+text-decoration: none; 
+transition: font-size 0.2s, color 0.5s;
+}
+.header_menu_list_checked a{ font-size: 18px; 
+color: black;
+}
+.header_menu_list span{height: 22px; 
+width: 2px; 
+background-color: #ececec; 
+position: absolute; 
+left: 0; 
+top: 23px;
+}
+.header_menu_list a:hover{font-size: 18px; 
+color: black;
+}
+#header_menu_details{
+display:none; 
+position: absolute; 
+background-color: #f3f3f3; 
+width: 100%;
+height: 170px; 
+background: url('../image/nav_nemu_bg.png'); 
+background-repeat: x-repeat;
+}
+.header_detail_container{
+width: 1000px; 
+height: 170px; 
+position: absolute; 
+top: 0; 
+left: 0;
+}
+#header_menu_details_box{ width: 1000px; 
+height: 170px; 
+margin: 0 auto; 
+overflow: hidden; 
+position: relative;
+}
+#header_menu_details_mask{width: 6000px; 
+height: 170px; 
+position: absolute;
+}
+.header_detail_box{float: left;
+}
+.header_detail_box{width: 200px; 
+height: 170px;
+}
+.header_detail_img1{width: 180px; 
+height: 100px; 
+background: url('../image/aj1.png'); 
+background-size: cover; 
+margin: 25px 0 10px 10px; 
+}
+.header_detail_img2{width: 180px; 
+height: 100px; 
+background: url('../image/adidas2.jpg'); 
+background-size: cover; 
+margin: 25px 0 10px 10px; 
+}
+.header_detail_img3{width: 180px; 
+height: 100px; 
+background: url('../image/nikelogo1.jpeg'); 
+background-size: cover; 
+margin: 25px 0 10px 10px; 
+}
+.header_detail_img4{width: 180px; 
+height: 100px; 
+background: url('../image/suplogo.jpg'); 
+background-size: cover; 
+margin: 25px 0 10px 10px; 
+}
+.header_detail_img5{width: 180px; 
+height: 100px; 
+background: url('../image/Gucci2.jpg'); 
+background-size: cover; 
+margin: 25px 0 10px 10px; 
+}
+.header_detail_img6{width: 180px; 
+height: 100px; 
+background: url('../image/under.jpg'); 
+background-size: cover; 
+margin: 25px 0 10px 10px; 
+}
+.header_detail_img7{width: 180px; 
+height: 100px; 
+background: url('../image/converse1.jpg'); 
+background-size: cover; 
+margin: 25px 0 10px 10px; 
+}
+.header_detail_img8{width: 180px; 
+height: 100px; 
+background: url('../image/palace2.jpg'); 
+background-size: cover; 
+margin: 25px 0 10px 10px; 
+}
+.header_detail_img9{width: 180px; 
+height: 100px; 
+background: url('../image/thrasher.jpg'); 
+background-size: cover; 
+margin: 25px 0 10px 10px; 
+}
+.header_detail_img10{width: 180px; 
+height: 100px; 
+background: url('../image/Stussy2.jpg'); 
+background-size: cover; 
+margin: 25px 0 10px 10px; 
+}
+.header_detail_img11{width: 64px; 
+height: 64px; 
+background: url('../image/mine3.png'); 
+background-size: cover; 
+margin: 25px 0 10px 10px; 
+}
+.header_detail_img12{width: 64px; 
+height: 64px; 
+background: url('../image/shopcar1.png'); 
+background-size: cover; 
+margin: 25px 0 10px 10px; 
+}
+.header_detail_img13{width: 64px; 
+height: 64px; 
+background: url('../image/liuyan1.png'); 
+background-size: cover; 
+margin: 25px 0 10px 10px; 
+}
+.header_detail_img14{width: 64px; 
+height: 64px; 
+background: url('../image/address.png'); 
+background-size: cover; 
+margin: 25px 0 10px 10px; 
+}
+.header_detail_img15{width: 64px; 
+height: 64px; 
+background: url('../image/back1.png'); 
+background-size: cover; 
+margin: 25px 0 10px 10px; 
+}
+.header_detail_title img{ display: inline-block; 
+margin-right: 8px;
+}
+.header_detail_title{ text-align: center;
+}
+#tip{ display: inline-block; 
+width: 100%; 
+text-align: center; 
+font-size: 18px; 
+color: #2b2b2b; 
+margin-top: 200px; 
+position: relative; 
+z-index: 1000; 
+}

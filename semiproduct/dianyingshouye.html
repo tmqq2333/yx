@@ -1,0 +1,543 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>电影网</title>
+		<link rel="stylesheet" type="text/css" href="css/comm.css"/>
+		<link rel="stylesheet" type="text/css" href="css/slide.css"/>
+		<style type="text/css">
+			/*第一部分*/
+			.top{
+				width: 1200px;
+				height: 60px;
+				margin: 0 auto;
+				position: relative;
+				margin-top: 40px;
+			}
+			.aa{
+				width: 1000px;
+				height: 50px;
+				float: left;
+				font-size: 24px;
+				line-height: 50px;
+			}
+			.bb{
+				width: 400px;
+				height: 50px;
+				background-repeat: no-repeat;
+				margin-left: 1050px;
+			}
+			/*第二部分*/
+			.header{
+				width: 1200px;
+				height: 35px;
+				background-color:#000000;
+				margin: 0 auto;
+				width: 100%;
+				height: 40px;
+				position: fixed;top: 0;opacity: 0.75;
+				z-index: 9999;
+
+			}
+			/*.header ul{
+				list-style: none;
+				width: 1200px;
+				height: 35px;
+				margin-left: 30px;
+			}
+			
+			.header ul li{
+				line-height: 35px;
+				float: left;
+				padding: 0 15px;
+			}
+			
+			.header ul li:hover {
+			background-color: dimgray;
+			}
+			.header ul li a{
+				text-decoration: none;
+				color: #EEEEEE;
+			}	
+				.header ul li a:hover{
+					color: goldenrod;
+				}*/
+			/*第三部分*/
+			.ppt{
+				width: 1200px;
+				height: 400px;
+				margin: 0 auto;
+			}
+			/*第四部分*/
+			.retrieval{
+				width: 1200px;
+				height: 130px;
+				
+				margin: 0 auto;
+				font-size: 16px;
+			}
+			.box2{
+				width: 400px;
+				height: 50px;
+				float: left;
+				margin-top: 20px;
+			}
+		
+			.box2 a{
+				font-size: 14px;
+				color: #EEEEEE;
+				line-height: 30px;
+			}
+			.box2 a:hover {
+				color: goldenrod;
+			}
+			
+			/*第五部分*/
+			.box1{
+				width: 1200px;
+				height: 800px;
+				margin: 0 auto;
+			}
+			.newsitem{
+				width:489px;
+				height:252px;
+				float: left;
+				margin-top: 10px;
+			}
+			.itemright2{
+				margin-left: 10px;
+			}
+			.itemright5{
+				margin-left: 10px;
+			}
+			.newsitem .title{
+				height: 35px;
+				line-height: 35px;
+				padding-left: 10px;
+				border-bottom: solid 1px #eee;
+				color: #333;
+			}
+			.newsitem a {
+				line-height:30px;
+				border-bottom:solid 1px #eee;
+				display: block;
+				padding-left: 10px;
+				color: #000000;
+			}
+			.itemright3{
+				width: 200px;
+				height: 300px;
+				margin-left: 10px;
+				border: solid 1px goldenrod;
+				border-top: solid 4px goldenrod;
+				background-image: url(img/log.gif);
+				background-color: #EEEEEE;opacity: 0.65;
+				background-size: 200px 300px;
+				
+				
+			}
+			.itemright3 ul li:hover {
+				background-color: goldenrod;
+				color: #000000;
+			
+			}
+			.itemright6{
+				width: 200px;
+				height: 300px;
+				margin-left: 10px;
+				border: solid 1px #EEEEEE;
+			}
+			.itemright6 ul li:hover {
+				background-color: blueviolet;
+			}
+			.foot{
+				clear: both;
+				height:200px;
+				width: 1200px;
+				margin: 0 auto;
+				background-color: #000000;
+				margin-top: 10px;
+			}
+		     .foot p{
+		     	line-height: 30px;
+		     	margin-left: 60px;
+		     	margin-top: 10px;
+		     	
+		     }
+			.kk{
+				width: 1200px;
+				height: 35px;
+			}
+			#oo{
+				width: 50px;
+				height: 20px;
+				margin-top: 10px;
+			}
+			#oo a{
+				color: #EEEEEE;
+			}
+			#ll{
+				width: 1000px;
+				height: 200px;
+				padding-top: 20px;
+			}
+			#bk{
+				background-image: url(img/bk2.jpg);
+				background-repeat: no-repeat;
+				background-size: 100% 100%;
+			}
+			#menu2{
+				width: 80px;
+				margin: 0 auto;
+				text-align: center;
+				line-height: 40px;
+				float: left;
+				padding-right: 30px;
+				
+			}
+			#menu2 ul{
+				list-style: none;
+				display: none;
+				position: absolute;
+				background-color: #333333;opacity: 0.8;
+			}
+			#menu2 ul li a{
+				color: #EEEEEE;
+			}
+			#menu2 p{
+				height: 40px;
+				cursor: pointer;
+				color: #EEEEEE;
+			}
+            .menu1{
+				width: 80px;
+				height: 40px;
+				float: left;
+				margin-left: 30px;
+			}
+			.menu1 p a{
+				line-height: 40px;
+				color: #000000;
+				color: #EEEEEE;
+			}
+
+		</style>
+	</head>
+	<body>
+		<div id="bk">
+		<div class="top">
+			<!--描述：电影网-->
+			<div class="aa">
+				
+				<span style="color: dodgerblue;margin-left: 100px;margin-left: 80px;">8888&nbsp;</span>电影网<span style="color: red;">.影&nbsp;库</span>
+			</div>
+			<div class="bb">
+				<img src="img/1.png"style="width:35px;height: 35px; float: left; margin-right: 5px;"/>
+				<div id="oo"><a href="###">登&nbsp;录</a></div>
+			</div>
+		</div>
+	
+			<div class="header">
+			<!--描述：导航 -->
+			<div class="menu1">
+				<p><a href="###">首页</a></p>
+			</div>
+            <div class="menu1">
+				<p><a href="###">国内热映</a></p>
+			</div>
+            <div class="menu1">
+				<p><a href="###">国内将映</a></p>
+			</div>
+             <div class="menu1">
+				<p><a href="###">环球新片</a></p>
+			</div>
+			 <div class="menu1">
+				<p><a href="###">佳片发现</a></p>
+			</div>
+			<div id="menu2">
+			<p>更多&nbsp;&nbsp;></p>
+			<ul id="listitem2">
+				<li>&nbsp;&nbsp;<a href="###">电影首页</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="###">独播专区</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="###">系列电影</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="###">vip精选</a>&nbsp;&nbsp;</li>
+			    <li>&nbsp;&nbsp;<a href="###">全网影视</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="###">好莱坞热播</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="###">预告片</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="###">精彩片花</a>&nbsp;&nbsp;</li>
+			    <li>&nbsp;&nbsp;<a href="###">电影节目</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="###">专题策划</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="###">风云榜</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="###">应用商店</a>&nbsp;&nbsp;</li>
+			</ul>
+		  </div>  
+		</div>
+		<div class="ppt">
+			<!--描述：轮播-->
+			<div class="pptbox" id="ppt01">
+				<ul class="innerwrapper">
+					<li><a href="#"><img src="img/5.jpg"/></a></li>
+					<li><a href="#"><img src="img/3.jpg"/></a></li>
+					<li><a href="#"><img src="img/4.jpg"/></a></li>
+					<li><a href="#"><img src="img/6.jpg"/></a></li>
+				</ul>
+				<ul class="controls">
+					<li class="current">5</li>
+					<li>3</li>
+					<li>4</li>
+					<li>6</li>
+				</ul>			
+				<span class="btnleft"></span>
+				<span class="btnright"></span>
+			</div>		
+		</div> 
+		<div class="retrieval">
+			<!--描述：检索-->
+			<div class="box2">
+				<div class="title">
+				<b style="font-size: 15px; color: #EEEEEE;margin-left: 15px;">类型&nbsp;&nbsp;&nbsp;&nbsp;全部></b>	
+				</div>
+					<p>&nbsp;&nbsp;&nbsp;<a href="###">喜剧爱情</a>&nbsp;&nbsp;&nbsp;&nbsp;
+					&nbsp;&nbsp;&nbsp;<a href="###">惊悚恐怖</a>&nbsp;&nbsp;&nbsp;&nbsp;
+					&nbsp;&nbsp;&nbsp;<a href="###">动作剧情</a>&nbsp;&nbsp;&nbsp;&nbsp;</p>
+					<p>&nbsp;&nbsp;&nbsp;<a href="###">科幻奇迹</a>&nbsp;&nbsp;&nbsp;&nbsp;
+					&nbsp;&nbsp;&nbsp;<a href="###">犯罪冒险</a>&nbsp;&nbsp;&nbsp;&nbsp;
+					&nbsp;&nbsp;&nbsp;<a href="###">历史记录</a>&nbsp;&nbsp;&nbsp;&nbsp;</p>
+			</div>
+			<div class="box2">
+				<div class="title">
+					<b style="font-size: 14px; color: #EEEEEE;margin-left: 15px;">地区&nbsp;&nbsp;&nbsp;&nbsp;全部></b>
+				</div>
+					<p>&nbsp;&nbsp;&nbsp;<a href="###">内地</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					&nbsp;&nbsp;&nbsp;<a href="###">香港</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					&nbsp;&nbsp;&nbsp;<a href="###">欧美</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					&nbsp;&nbsp;&nbsp;<a href="###">日韩</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+					<p>&nbsp;&nbsp;&nbsp;<a href="###">台湾</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					&nbsp;&nbsp;&nbsp;<a href="###">泰国</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					&nbsp;&nbsp;&nbsp;<a href="###">印度</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					&nbsp;&nbsp;&nbsp;<a href="###">其他</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+				</ul>
+			</div>
+			<div class="box2">
+				<div class="title">
+					<b style="font-size: 14px; color: #EEEEEE;margin-left: 15px;">年份&nbsp;&nbsp;&nbsp;&nbsp;全部></b>
+				</div>
+					<p>&nbsp;&nbsp;&nbsp;<a href="###">2018</a>&nbsp;&nbsp;&nbsp;
+					&nbsp;&nbsp;&nbsp;<a href="###">2017</a>&nbsp;&nbsp;&nbsp;&nbsp;
+					&nbsp;&nbsp;&nbsp;<a href="###">2016</a>&nbsp;&nbsp;&nbsp;&nbsp;
+					&nbsp;&nbsp;&nbsp;<a href="###">2015</a>&nbsp;&nbsp;&nbsp;&nbsp;</p>
+					&nbsp;&nbsp;&nbsp;<a href="###">2014-2010</a>&nbsp;&nbsp;&nbsp;&nbsp;
+					&nbsp;&nbsp;&nbsp;<a href="###">2019-2000</a>&nbsp;&nbsp;&nbsp;&nbsp;
+					&nbsp;&nbsp;&nbsp;<a href="###">更早</a>&nbsp;&nbsp;&nbsp;&nbsp;
+			</div>
+		</div>
+		</div>
+		<div class="box1">
+			<div class="kk">
+				<p style="font-size: 18px;line-height: 35px;font-family: '黑体';color: saddlebrown;margin-top: 10px;">热播推荐</p>
+			</div>
+		<div class="newswrapper">
+			<div class="leftpart">
+				<div class="newsitem itemright1">
+				<!--第一块-->
+				<img src="img/a.jpg"style="float: left; margin-right: 5px;"/>
+                <span style="color: burlywood;font-size: 20px;line-height: 40px;">
+                <b>《一出好戏》</b></br></span> 
+                <span style="color: burlywood;font-size: 17px;line-height: 35px;">
+                               上映：2018.08.10</br>导演：黄渤</br>演员：黄渤/舒淇/王宝强/张艺兴
+                </span>
+                              
+			</div>
+			
+			<div class="newsitem itemright2">
+				<!--第二块-->
+				<img src="img/b.jpg"style="float: left; margin-right: 5px;"/>
+				   <span style="color: burlywood;font-size: 20px;line-height: 40px;">
+                <b>《快把我哥带走》</b></br>
+                </span> 
+                <span style="color: burlywood;font-size: 17px;line-height: 35px;">
+                               上映：2018.06.28</br>导演：郑芬芬</br>演员：张子枫/彭昱畅/赵今麦/孙泽源
+                </span>
+			</div>
+			</div>
+			
+			
+			<div class="newsitem itemright3">
+				<div class="title"style="background-color: goldenrod;opacity: 0.9;">
+					<b>国内热映</b>
+				</div>
+				<ul>
+					<li><a href="###">一出好戏</a></li>
+					<li><a href="">快把我哥带走</a></li>
+					<li><a href="">影</a></li>
+					<li><a href="">迷巢</a></li>
+					<li><a href="">悲伤逆流成河</a></li>
+					<li><a href="">动物世界</a></li>
+					<li><a href="">公告111111111111111111</a></li>
+				</ul>
+			</div>
+			
+			
+			<div class="newsitem itemright4">
+				<img src="img/c.jpg"style="float: left; margin-right: 5px;"/>
+                <span style="color: burlywood;font-size: 20px;line-height: 40px;">
+                <b>《动物世界》</b></br></span> 
+                <span style="color: burlywood;font-size: 17px;line-height: 35px;">
+                               上映：2018.06.29</br>导演：韩延</br>演员：李易峰/迈克尔·道格拉斯/周冬雨
+
+                </span>
+			</div>
+			
+			<div class="newsitem itemright5">
+				<img src="img/d.jpg"style="float: left; margin-right: 5px;"/>
+                <span style="color: burlywood;font-size: 20px;line-height: 40px;">
+                <b>《红海行动》</b></br></span> 
+                <span style="color: burlywood;font-size: 17px;line-height: 35px;">
+                               上映：2018.02.16</br>导演：林超贤</br>演员：张译/黄景瑜/海清/杜江
+                </span>
+			</div>
+			
+			<div class="newsitem itemright3">
+				<div class="title"style="background-color: goldenrod;opacity: 0.9;">
+					<b>本周期待榜</b>
+				</div>
+				<ul>
+					<li><a href="###">一出好戏</a></li>
+					<li><a href="">快把我哥带走</a></li>
+					<li><a href="">影</a></li>
+					<li><a href="">迷巢</a></li>
+					<li><a href="">悲伤逆流成河</a></li>
+					<li><a href="">动物世界</a></li>
+					<li><a href="">公告111111111111111111</a></li>
+				</ul>
+			</div>
+			
+		</div>
+		</div>
+		<div class="box1">
+			<div class="kk">
+				<p style="font-size: 18px;line-height: 35px;font-family: '黑体';color: saddlebrown;margin-top: 10px;">最新上映</p>
+			</div>
+		<div class="newswrapper">
+			<div class="leftpart">
+				<div class="newsitem itemright1">
+				<!--第一块-->
+				<img src="img/a.jpg"style="float: left; margin-right: 5px;"/>
+                <span style="color: burlywood;font-size: 20px;line-height: 40px;">
+                <b>《一出好戏》</b></br></span> 
+                <span style="color: burlywood;font-size: 17px;line-height: 35px;">
+                               上映：2018.08.10</br>导演：黄渤</br>演员：黄渤/舒淇/王宝强/张艺兴
+                </span>
+                              
+			</div>
+			
+			<div class="newsitem itemright2">
+				<!--第二块-->
+				<img src="img/b.jpg"style="float: left; margin-right: 5px;"/>
+				   <span style="color: burlywood;font-size: 20px;line-height: 40px;">
+                <b>《快把我哥带走》</b></br>
+                </span> 
+                <span style="color: burlywood;font-size: 17px;line-height: 35px;">
+                               上映：2018.06.28</br>导演：郑芬芬</br>演员：张子枫/彭昱畅/赵今麦/孙泽源
+                </span>
+			</div>
+			</div>
+			
+			
+			<div class="newsitem itemright3">
+				<div class="title"style="background-color: goldenrod;opacity: 0.9;">
+					<b>国内热映</b>
+				</div>
+				<ul>
+					<li><a href="###">一出好戏</a></li>
+					<li><a href="">快把我哥带走</a></li>
+					<li><a href="">影</a></li>
+					<li><a href="">迷巢</a></li>
+					<li><a href="">悲伤逆流成河</a></li>
+					<li><a href="">动物世界</a></li>
+					<li><a href="">公告111111111111111111</a></li>
+				</ul>
+			</div>
+			
+			
+			<div class="newsitem itemright4">
+				<img src="img/c.jpg"style="float: left; margin-right: 5px;"/>
+                <span style="color: burlywood;font-size: 20px;line-height: 40px;">
+                <b>《动物世界》</b></br></span> 
+                <span style="color: burlywood;font-size: 17px;line-height: 35px;">
+                               上映：2018.06.29</br>导演：韩延</br>演员：李易峰/迈克尔·道格拉斯/周冬雨
+
+                </span>
+			</div>
+			
+			<div class="newsitem itemright5">
+				<img src="img/d.jpg"style="float: left; margin-right: 5px;"/>
+                <span style="color: burlywood;font-size: 20px;line-height: 40px;">
+                <b>《红海行动》</b></br></span> 
+                <span style="color: burlywood;font-size: 17px;line-height: 35px;">
+                               上映：2018.02.16</br>导演：林超贤</br>演员：张译/黄景瑜/海清/杜江
+                </span>
+			</div>
+			
+			<div class="newsitem itemright3">
+				<div class="title"style="background-color: goldenrod;opacity: 0.9;">
+					<b>本周期待榜</b>
+				</div>
+				<ul>
+					<li><a href="###">一出好戏</a></li>
+					<li><a href="">快把我哥带走</a></li>
+					<li><a href="">影</a></li>
+					<li><a href="">迷巢</a></li>
+					<li><a href="">悲伤逆流成河</a></li>
+					<li><a href="">动物世界</a></li>
+					<li><a href="">公告111111111111111111</a></li>
+				</ul>
+			</div>
+			
+		</div>
+		</div>
+		<div class="foot">
+			<!--描述：尾部-->
+			<div id="ll">
+			<b><p style="color: gray;opacity: 0.8;font-size: 20px;">电影网</p></b>
+			<p style="font-size: 13px;color: #EEEEEE;">关于我们&nbsp;&nbsp;&nbsp;&nbsp;网站地图&nbsp;&nbsp;&nbsp;&nbsp;诚聘英才&nbsp;&nbsp;&nbsp;&nbsp;
+				版权声明&nbsp;&nbsp;&nbsp;&nbsp;联系我们&nbsp;&nbsp;&nbsp;&nbsp;帮助与反馈&nbsp;&nbsp;&nbsp;&nbsp;
+				友情链接&nbsp;&nbsp;&nbsp;&nbsp;广告招商</p>
+				<p style="font-size: 13px; color: gray;opacity: 0.7;">出版物经营许可证 &nbsp;&nbsp;&nbsp;&nbsp;电影发行许可证&nbsp;&nbsp;&nbsp;&nbsp; 
+					经营性演出许可证&nbsp;&nbsp;&nbsp;&nbsp;网络视听许可证&nbsp;&nbsp;&nbsp;&nbsp;企业法人营业执照</p>
+				<p style="font-size: 13px; color: gray;opacity: 0.7;"> 增值电信业务经营许可证 &nbsp;&nbsp;&nbsp;&nbsp;反盗版和反盗链权利声明&nbsp;&nbsp;&nbsp;&nbsp;  
+                                信息网络传播视听节目许可证&nbsp;&nbsp;&nbsp;&nbsp;中国互联网诚信联盟&nbsp;&nbsp;&nbsp;&nbsp;京公网安备</p>
+			</div>
+		</div>
+		<script src="js/jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/tyslide.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//此处就可以写我们自己的额js代码
+			
+			//要找到一个元素  可以 给一个元素取一个id,然后通过$("#id")这种形式找到一个 元素。
+			//找到元素之后给它添加对应的事件。mouseenter：鼠标移动上去的时候调用 
+			$("#menu").mouseenter(function(){
+				$("#listitem").slideDown();//展开下拉菜单  slideDown和slideUp都是jq库里面封装的代码
+			});
+			//mouseleave：鼠标离开的 时候调用。  click：鼠标点击元素的时候执行。
+			$("#menu").mouseleave(function(){
+				
+				$("#listitem").slideUp();//折叠菜单 
+			});
+			$("#ppt01").tyslide({
+			boxh:400,//盒子的高度
+			w:1200,//盒子的宽度
+			h:400,//图片的高度
+			isShow:true,//是否显示控制器
+			isShowBtn:true,//是否显示左右按钮
+			controltop:5,//控制按钮上下偏移的位置,要将按钮向下移动   首先保证boxh 高度>图片 h
+			controlsW:30,//控制按钮宽度
+			controlsH:10,//控制按钮高度
+			radius:10,//控制按钮圆角度数
+			controlsColor:"#eee",//普通控制按钮的颜色
+			controlsCurrentColor:"#ccc"//当前控制按钮的颜色
+		});
+		$("#menu2").mouseenter(function(){
+			$("#listitem2").slideDown();
+			});
+			$("#menu2").mouseleave(function(){
+				$("#listitem2").slideUp();
+			});
+
+		</script>
+		
+		
+	</body>
+</html>

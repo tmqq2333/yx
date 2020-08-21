@@ -1,0 +1,75 @@
+#main{
+	width: 330px;
+	height: 700px;
+	margin: 0 auto;
+	margin-top: 100px;
+}
+
+/*margin: 0 auto;： 让一个容器居中  前提上必须给这个容器设置宽度 而且上再他的父亲容器里面居中*/
+#reglogo{
+	width: 50px;
+	height: 50px;
+	margin: 0 auto;
+}
+/*text-align: center;:让文本居中*/
+h3{
+	text-align: center;
+	padding-top: 20px;
+}
+
+p{
+	font-size: 14px;
+}
+
+/*
+ 	line-height: 26px;  ：行高的作用：通常用来调节每行文字在竖直方向上的距离。
+ 	
+ * */
+p.title
+{
+	color: #333;
+	line-height:36px;
+}
+
+
+/*
+ background-image: url(../img/regicon.png);  背景图片  后面路径就上背景图片所在的目录
+ 
+ background-position: right center;  设置背景图片的位置    right表示从右边开始填充   center：在竖直方向上面居中显示  你也可以设置成为具体的像素 ：   50px 30px 
+ * 
+ * */
+p.hasinput
+{
+	border: solid 1px #ccc;
+	height: 40px;
+	background-image: url(../img/regicon.png);
+	background-position: right center;
+}
+
+p input{
+	height: 40px;
+	border: 0;
+	outline: none;
+	width: 285px;
+	padding-left:5px;
+}
+/*
+ color: #fff; 字体的颜色
+ background-color: #FF6700; 容器的背景颜色
+ background-img：背景图片
+ * 
+ * */
+#btnreg{
+	width: 330px;
+	height: 40px;
+	background-color: #666A6E;
+	border: 0;
+	color: #fff;
+	margin-top: 20px;
+}
+
+#contact{
+	font-size: 14px;
+	padding-top: 20px;
+	line-height: 24px;
+}

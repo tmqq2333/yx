@@ -1,0 +1,303 @@
+h1, p, span {
+  font-family: monospace;
+  font-weight: 300;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.5);
+}
+h1, h1 + p {
+  margin: 2rem 1rem;
+}
+.wrapper {
+  max-width: 60rem;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 3rem;
+}
+.case1{
+  width: 15rem;
+  height: 20rem;
+  padding: 0 2rem 3rem;
+  -webkit-transition: opacity 0.5s linear 0.3s,
+    -webkit-transform 0.3s linear 0s,
+    -webkit-filter 0.5s linear 0.3s;
+  transition: opacity 0.5s linear 0.3s,
+    -webkit-transform 0.3s linear 0s,
+    -webkit-filter 0.5s linear 0.3s;
+  transition: transform 0.3s linear 0s,
+    filter 0.5s linear 0.3s,
+    opacity 0.5s linear 0.3s;
+  transition:
+    transform 0.3s linear 0s,
+    filter 0.5s linear 0.3s,
+    opacity 0.5s linear 0.3s,
+    -webkit-transform 0.3s linear 0s,
+    -webkit-filter 0.5s linear 0.3s;
+  /*transform-origin: top center;*/
+}
+.product {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 0.2rem;
+  background-image: url(../img/clothes1.jpg);
+  background-color: #fff;
+  background-position: top 3rem center;
+  background-size: 80%;
+  background-repeat: no-repeat;
+  box-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.1);
+  -webkit-transition: box-shadow 0.5s linear,
+    height 0.1s linear 0s;
+  transition:
+    box-shadow 0.5s linear,
+    height 0.1s linear 0s;
+}
+.product1 {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 0.2rem;
+  background-image: url(../img/clothes2.jpg);
+  background-color: #fff;
+  background-position: top 3rem center;
+  background-size: 80%;
+  background-repeat: no-repeat;
+  box-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.1);
+  -webkit-transition: box-shadow 0.5s linear,
+    height 0.1s linear 0s;
+  transition:
+    box-shadow 0.5s linear,
+    height 0.1s linear 0s;
+}.product2 {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 0.2rem;
+  background-image: url(../img/clothes4.jpg);
+  background-color: #fff;
+  background-position: top 3rem center;
+  background-size: 80%;
+  background-repeat: no-repeat;
+  box-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.1);
+  -webkit-transition: box-shadow 0.5s linear,
+    height 0.1s linear 0s;
+  transition:
+    box-shadow 0.5s linear,
+    height 0.1s linear 0s;
+}
+.product3{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 0.2rem;
+  background-image: url(../img/clothes6.jpg);
+  background-color: #fff;
+  background-position: top 3rem center;
+  background-size: 80%;
+  background-repeat: no-repeat;
+  box-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.1);
+  -webkit-transition: box-shadow 0.5s linear,
+    height 0.1s linear 0s;
+  transition:
+    box-shadow 0.5s linear,
+    height 0.1s linear 0s;
+}
+.product4{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 0.2rem;
+  background-image: url(../img/example5.JPG);
+  background-color: #fff;
+  background-position: top 3rem center;
+  background-size: 80%;
+  background-repeat: no-repeat;
+  box-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.1);
+  -webkit-transition: box-shadow 0.5s linear,
+    height 0.1s linear 0s;
+  transition:
+    box-shadow 0.5s linear,
+    height 0.1s linear 0s;
+}
+.product5{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 0.2rem;
+  background-image: url(../img/airmax97.JPG);
+  background-color: #fff;
+  background-position: top 3rem center;
+  background-size: 80%;
+  background-repeat: no-repeat;
+  box-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.1);
+  -webkit-transition: box-shadow 0.5s linear,
+    height 0.1s linear 0s;
+  transition:
+    box-shadow 0.5s linear,
+    height 0.1s linear 0s;
+}
+.product6{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 0.2rem;
+  background-image: url(../img/example6.JPG);
+  background-color: #fff;
+  background-position: top 3rem center;
+  background-size: 80%;
+  background-repeat: no-repeat;
+  box-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.1);
+  -webkit-transition: box-shadow 0.5s linear,
+    height 0.1s linear 0s;
+  transition:
+    box-shadow 0.5s linear,
+    height 0.1s linear 0s;
+}
+.product7{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 0.2rem;
+  background-image: url(../img/exmaple7.JPG);
+  background-color: #fff;
+  background-position: top 3rem center;
+  background-size: 80%;
+  background-repeat: no-repeat;
+  box-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.1);
+  -webkit-transition: box-shadow 0.5s linear,
+    height 0.1s linear 0s;
+  transition:
+    box-shadow 0.5s linear,
+    height 0.1s linear 0s;
+}
+.product8{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 0.2rem;
+  background-image: url(../img/hat2.jpg);
+  background-color: #fff;
+  background-position: top 3rem center;
+  background-size: 80%;
+  background-repeat: no-repeat;
+  box-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.1);
+  -webkit-transition: box-shadow 0.5s linear,
+    height 0.1s linear 0s;
+  transition:
+    box-shadow 0.5s linear,
+    height 0.1s linear 0s;
+}
+.product9{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 0.2rem;
+  background-image: url(../img/pen1.jpg);
+  background-color: #fff;
+  background-position: top 3rem center;
+  background-size: 80%;
+  background-repeat: no-repeat;
+  box-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.1);
+  -webkit-transition: box-shadow 0.5s linear,
+    height 0.1s linear 0s;
+  transition:
+    box-shadow 0.5s linear,
+    height 0.1s linear 0s;
+}
+.product10{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 0.2rem;
+  background-image: url(../img/socks.jpg);
+  background-color: #fff;
+  background-position: top 3rem center;
+  background-size: 80%;
+  background-repeat: no-repeat;
+  box-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.1);
+  -webkit-transition: box-shadow 0.5s linear,
+    height 0.1s linear 0s;
+  transition:
+    box-shadow 0.5s linear,
+    height 0.1s linear 0s;
+}
+.product11{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 0.2rem;
+  background-image: url(../img/skateboard.jpg);
+  background-color: #fff;
+  background-position: top 3rem center;
+  background-size: 80%;
+  background-repeat: no-repeat;
+  box-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.1);
+  -webkit-transition: box-shadow 0.5s linear,
+    height 0.1s linear 0s;
+  transition:
+    box-shadow 0.5s linear,
+    height 0.1s linear 0s;
+}
+.name {
+  display: block;
+  padding: 1rem 0.5rem;
+}
+.description {
+  position: absolute;
+  bottom: 1rem;
+  left: 0;
+  right: 0;
+  display: block;
+  padding: 0 1.5rem;
+  opacity: 0;
+  -webkit-transition: opacity 0.1s linear 0s;
+  transition: opacity 0.1s linear 0s;
+}
+.wrapper:hover .case1:not(:hover)  {
+  -webkit-filter: blur(3px);
+          filter: blur(3px);
+  opacity: 0.5;
+}
+.case1:hover  {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  -webkit-transition: opacity 0.1s linear 0s,
+    -webkit-transform 0.3s linear 0.3s,
+    -webkit-filter 0.1s linear 0s;
+  transition: opacity 0.1s linear 0s,
+    -webkit-transform 0.3s linear 0.3s,
+    -webkit-filter 0.1s linear 0s;
+  transition: transform 0.3s linear 0.3s,
+    filter 0.1s linear 0s,
+    opacity 0.1s linear 0s;
+  transition:
+    transform 0.3s linear 0.3s,
+    filter 0.1s linear 0s,
+    opacity 0.1s linear 0s,
+    -webkit-transform 0.3s linear 0.3s,
+    -webkit-filter 0.1s linear 0s;
+}
+.case1:hover .product {
+  height: 23rem;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
+  -webkit-transition: box-shadow 1s linear,
+    height 0.3s linear 0.5s;
+  transition:
+    box-shadow 1s linear,
+    height 0.3s linear 0.5s;
+}
+.case1:hover .description {
+  opacity: 1;
+  -webkit-transition: opacity 0.3s linear 0.75s;
+  transition: opacity 0.3s linear 0.75s;
+}

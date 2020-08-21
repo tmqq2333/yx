@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<!--引入公共样式表-->
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<!--引入当前页面的样式表-->
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		<!--公共的样式表在前面,私有的样式表在后面-->
+		<!--引入轮播的样式-->
+		<link rel="stylesheet" type="text/css" href="css/slide.css" />
+		<link rel="stylesheet" type="text/css" href="css/css1.css" id="mycss" />
+		<style type="text/css">
+			#topinner a {
+				color: black;
+				font-size: 15px;
+			}
+			
+			#bottomright {
+				width: 252px;
+				height: 160px;
+				position: absolute;
+				right: 0;
+				top: 30px;
+				background-image: url(../img/bottomright.png);
+			}
+			
+			#prolist a.hasimg {
+				padding-top: 6px;
+			}
+			
+			body {
+				margin: 0;
+				background: white;
+			}
+			
+			#wrap {
+				width: 210px;
+				height: 280px;
+				position: relative;
+				margin: 100px auto;
+				-webkit-perspective: 3000px;
+				-moz-perspective: 3000px;
+				-ms-transform: perspective(3000px);
+				-ms-perspective: 3000px;
+			}
+			
+			#head {
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				-webkit-transform-style: preserve-3d;
+				-webkit-animation: donghua 15s linear 0s infinite;
+				-moz-transform-style: preserve-3d;
+				-moz-animation: donghua 15s linear 0s infinite;
+				-ms-transform-style: preserve-3d;
+				-ms-animation: donghua 25s linear 0s infinite;
+			}
+			
+			#head div {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 210px;
+				height: 280px;
+				border: 1px solid red;
+				text-align: center;
+				line-height: 100px;
+			}
+			
+			#head div:nth-child(1) {
+				background: url(img/l6.jpg);
+				background-size: cover;
+			}
+			
+			#head div:nth-child(2) {
+				-webkit-transform: rotateY(36deg) translateZ(500px);
+				-moz-transform: rotateY(36deg) translateZ(500px);
+				-ms-transform: rotateY(36deg) translateZ(500px);
+				background: url(img/l7.jpg);
+				background-size: cover;
+			}
+			
+			#head div:nth-child(3) {
+				-webkit-transform: rotateY(72deg) translateZ(400px);
+				-moz-transform: rotateY(72deg) translateZ(400px);
+				-ms-transform: rotateY(72deg) translateZ(400px);
+				background: url(img/l8.jpg);
+				background-size: cover;
+			}
+			
+			#head div:nth-child(4) {
+				-webkit-transform: rotateY(108deg) translateZ(500px);
+				-moz-transform: rotateY(108deg) translateZ(500px);
+				-ms-transform: rotateY(108deg) translateZ(500px);
+				background: url(img/l9.jpg);
+				background-size: cover;
+			}
+			
+			#head div:nth-child(5) {
+				-webkit-transform: rotateY(144deg) translateZ(400px);
+				-moz-transform: rotateY(144deg) translateZ(400px);
+				-ms-transform: rotateY(144deg) translateZ(400px);
+				background: url(il);
+				background-size: cover;
+			}
+			
+			#head div:nth-child(6) {
+				-webkit-transform: rotateY(180deg) translateZ(500px);
+				-moz-transform: rotateY(180deg) translateZ(500px);
+				-ms-transform: rotateY(180deg) translateZ(500px);
+				background-size: cover;
+			}
+			
+			#head div:nth-child(7) {
+				-webkit-transform: rotateY(216deg) translateZ(400px);
+				-moz-transform: rotateY(216deg) translateZ(400px);
+				-ms-transform: rotateY(216deg) translateZ(400px);
+				background: url(http://hovertree.com/texiao/css/14/hovertreepic/07.jpg);
+				background-size: cover;
+			}
+			
+			#head div:nth-child(8) {
+				-webkit-transform: rotateY(252deg) translateZ(500px);
+				-moz-transform: rotateY(252deg) translateZ(500px);
+				-ms-transform: rotateY(252deg) translateZ(500px);
+				background: url(http://hovertree.com/texiao/css/14/hovertreepic/08.jpg);
+				background-size: cover;
+			}
+			
+			#head div:nth-child(9) {
+				-webkit-transform: rotateY(288deg) translateZ(400px);
+				-moz-transform: rotateY(288deg) translateZ(400px);
+				-ms-transform: rotateY(288deg) translateZ(400px);
+				background: url(http://hovertree.com/hvtimg/201511/6j9j6tk5.png);
+				background-size: cover;
+			}
+			
+			#head div:nth-child(10) {
+				-webkit-transform: rotateY(324deg) translateZ(500px);
+				-moz-transform: rotateY(324deg) translateZ(500px);
+				-ms-transform: rotateY(324deg) translateZ(500px);
+				background: url(http://cms.hovertree.com/hvtimg/201512/wfevf6yh.jpg);
+				background-size: cover;
+			}
+			
+			@-webkit-keyframes donghua {
+				0% {
+					transform: rotateX(5deg) rotateY(360deg);
+				}
+				50% {
+					transform: rotateX(-5deg) rotateY(180deg);
+				}
+				100% {
+					transform: rotateX(5deg) rotateY(0deg);
+				}
+			}
+			
+			@-moz-keyframes donghua {
+				0% {
+					transform: rotateY(10deg) rotateY(0deg);
+				}
+				50% {
+					transform: rotateY(-10deg) rotateY(180deg);
+				}
+				100% {
+					transform: rotateY(10deg) rotateY(360deg);
+				}
+			}
+			
+			@-ms-keyframes donghua {
+				0% {
+					transform: rotateY(10deg) rotateY(0deg);
+				}
+				50% {
+					transform: rotateY(-10deg) rotateY(180deg);
+				}
+				100% {
+					transform: rotateY(10deg) rotateY(360deg);
+				}
+			}
+			/*.title{
+				background-color: orange;
+				width: 1220px;
+				height: 40px;
+				margin-left:147px ;
+			}
+			*/
+			
+			.xbox {
+				width: 5px;
+				height: 25px;
+				background-color: #5E2FE7;
+				float: left;
+			}
+			/*春夏*/
+			
+			#xbox666 {
+				max-width: 1222px;
+				max-height: 800px;
+				/*background-color: royalblue;*/
+				margin: auto;
+			}
+			
+			#xc9 {
+				max-width: 1250px;
+				height: 400px;
+				border: 2px #EEEEEE solid;
+				background-color: #EEEEEE;
+				margin: auto;
+				border-radius: 10px;
+				color: darkslateblue;
+				position: relative;
+				/*background: linear-gradient( 64deg, blueviolet, plum, darkslateblue);*/
+				/*box-shadow: 0px 0px 40px 5px rgba(12, 10, 3, 0.4);*/
+				background-image: url(img/05.jpg);
+				background-size: 300px 300px;
+			}
+			
+			#xc6 {
+				width: 400px;
+				height: 46px;
+				border: solid 2px #EEEEEE;
+				background-color: #008B8B;
+				border-radius: 33px;
+				margin-bottom: 26px;
+				margin-top: 60px;
+				background-color: khaki;
+				background-size: 170px 100px;
+				/*background: linear-gradient( 64deg, blueviolet, plum,darkslateblue);*/
+				box-shadow: 0px 0px 9px -4px rgba(12, 10, 3, 0.4);
+				-webkit-user-select: none;
+			}
+			
+			#xh1 {}
+			
+			#xh1 li {
+				width: 88px;
+				height: 35px;
+				float: left;
+				list-style: none;
+				line-height: 35px;
+				text-align: center;
+				margin: auto;
+				margin-left: 6px;
+				color: white;
+				font-size: 16px;
+				text-shadow: 10px 10px 50px #FFFFFF;
+			}
+			
+			#xh1 li.show {
+				border-bottom: solid 1px #eee;
+				background-color: palevioletred;
+				color: white;
+				font-size: 25px;
+				border-radius: 19px;
+				border: solid 1px white;
+				box-shadow: 0px 1px 8px 3px rgba(18, 2, 32, 0.8);
+				color: ;
+				line-height: 33px;
+				background: linear-gradient( 64deg, navy, plum, darkslateblue);
+			}
+			
+			#xc9 ::after {
+				content: '';
+				position: absolute;
+				top: -1px;
+				bottom: -1px;
+				left: -1px;
+				right: -1px;
+				/*background: linear-gradient(165deg, #000781, orchid, paleturquoise, darkgrey);*/
+				content: '';
+				z-index: -1;
+			}
+			
+			#xh2 li {
+				list-style: none;
+				display: none;
+				margin-top: 1px;
+				/*margin-left: 4px;*/
+				width: 280px;
+				height: 160px;
+				color: white;
+				position: absolute;
+				left: 0px;
+				top: 10px;
+				/*background-color: #000000;*/
+				text-align: center;
+				font-size: 26px;
+				line-height: 35px;
+			}
+			
+			#xh2 li.show {
+				display: block;
+			}
+			
+			.xcc1 {
+				width: 220px;
+				height: 380px;
+				background-color: blanchedalmond;
+				position: absolute;
+				left: 20px;
+				top: 0px;
+			}
+			
+			.xcc2 {
+				width: 220px;
+				height: 380px;
+				background-color: blanchedalmond;
+				position: absolute;
+				left: 260px;
+				top: 0px;
+			}
+			
+			.xcc3 {
+				width: 220px;
+				height: 380px;
+				background-color: blanchedalmond;
+				position: absolute;
+				left: 500px;
+				top: 0px;
+			}
+			
+			.xcc4 {
+				width: 220px;
+				height: 380px;
+				background-color: blanchedalmond;
+				position: absolute;
+				left: 740px;
+				top: 0px;
+			}
+			
+			.xcc5 {
+				width: 220px;
+				height: 380px;
+				background-color: blanchedalmond;
+				position: absolute;
+				left: 980px;
+				top: 0px;
+			}
+			/*2级导航*/
+			
+			.xgg {
+				z-index: 99;
+				background-color: grey;
+				display: none;
+				position: absolute;
+				left: 234px;
+				top: 15px;
+				width: 400px;
+				height: 420px;
+				opacity: 0.5;
+			}
+			
+			.xgg a {
+				list-style: none;
+				line-height: 45px;
+				/*background-color: orange;*/
+				display: block;
+				text-decoration: none;
+				color: orange;
+				float: left;
+			}
+			/*卡牌*/
+			
+			#recommpro li {
+				position: relative;
+			}
+			
+			.xa1 {
+				position: absolute;
+				left: 0;
+				top: 0;
+				transform: rotateY(180deg);
+				backface-visibility: hidden;
+				transition: all 1s;
+			}
+			
+			.xa2 {
+				position: absolute;
+				left: 0;
+				top: 0;
+				transform: rotateY(0deg);
+				backface-visibility: hidden;
+				transition: all 1s;
+			}
+			
+			.xa1:hover {
+				transform: rotateY(0deg);
+			}
+			
+			.xa2:hover {
+				transform: rotateY(180deg);
+			}
+			
+			#zhuti {
+				width: 1245px;
+				margin: 0 auto;
+			}
+			
+			#prolist li {
+				width: 228px;
+			}
+			
+			.xsl {
+				width: 228px;
+				height: 90px;
+				background-color: red;
+				position: absolute;
+				top: 234px;
+				display: none;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--头部开始-->
+		<div id="top" style="background-color: #F3F3F3;">
+			<div class="innerclass" id="topinner">
+				<a href="nongchanpingshouye.html">首页</a> |
+				<a href="">一路有你 星月相伴</a>
+			
+				<div id="topright">
+						
+					<a href="nongcanpingdenglu.html" style="position: relative;"><img src="img/denglu.png" style="width: 23px;height: 23px;position: relative;top: 6px;" />&nbsp;登录/注册</a>
+					<a href="nongcanpingdingdan.html" style="position: relative;"><img src="img/dingdan.png" style="width: 23px;height: 23px;position: relative;top: 5px;" />&nbsp;我的订单</a>
+					<a href="nongcanpinggouwuche.html" style="position: relative;"><img src="img/gouwuce.png" style="width: 21px;height: 21px;position: relative;top: 4px;" />&nbsp;购物车</a>
+				</div>
+			</div>
+		 <div class="xa">
+				<span class="lu"></span>
+				<span class="red"></span>
+				<span class="y"></span>
+			</div>
+		</div>
+
+		<div id="zhuti">
+			<div id="header" class="innerclass" style="position: relative;">
+				<a href="index" id="logo"><img src="img/lu.png" style="background-color: darkorange;width: 58px;height: 58px;position: absolute;left: 90px;border-radius:20px ;"></a>
+				<div id="nav">
+					<a href="uiprolist?typeid=1">四川</a>
+					<a href="uiprolist?typeid=2">重庆</a>
+					<a href="uiprolist?typeid=3">云南</a>
+					<a href="uiprolist?typeid=3">贵州</a>
+					<a href="uiprolist?typeid=4">广西</a>
+					<a href="uiprolist?typeid=5">新疆</a>
+					<a href="uiprolist?typeid=6">西藏</a>
+					<a href="uiprolist?typeid=7">青海</a>
+					<a href="uiprolist?typeid=8">陕西</a>
+					<a href="uiprolist?typeid=9">山西</a>
+				</div>
+				<div id="search">
+					<input type="text" name="tbsearchkey" placeholder="输入你想要的宝贝" />
+					<p id="btnsearch"></p>
+				</div>
+			</div>
+			<!--头部结束-->
+			<!--主体开始-->
+			<div id="main">
+
+				<!--二级导航开始-->
+				<div id="navppt" class="innerclass" style="border: solid 1px orange;">
+					<ul id="leftnav" style="background-color: #DAA520;">
+						<li>
+							<a href="uiprolist?typeid=1">四川</a>
+
+							<div class="xgg">
+								<a href="">二级导航</a>
+								<a href="">二级导航</a>
+								<a href="">二级导航</a>
+								<a href="">二级导航</a>
+								<a href="">二级导航</a>
+								<a href="">二级导航</a>
+							</div>
+						</li>
+						<li>
+							<a href="uiprolist?typeid=1">重庆</a>
+							<div class="xgg">
+								<a href="">二级导航</a>
+								<a href="">二级导航</a>
+								<a href="">二级导航</a>
+								<a href="">二级导航</a>
+								<a href="">二级导航</a>
+								<a href="">二级导航</a>
+							</div>
+						</li>
+						<li>
+							<a href="uiprolist?typeid=1">云南</a>
+							<div class="xgg">
+								<a href="">二级导航</a>
+								<a href="">二级导航</a>
+								<a href="">二级导航</a>
+								<a href="">二级导航</a>
+								<a href="">二级导航</a>
+								<a href="">二级导航</a>
+							</div>
+						</li>
+						<li>
+							<a href="uiprolist?typeid=1">贵州</a>
+							<div class="xgg">
+								<a href="">二级导航</a>
+								<a href="">二级导航</a>
+								<a href="">二级导航</a>
+								<a href="">二级导航</a>
+								<a href="">二级导航</a>
+								<a href="">二级导航</a>
+							</div>
+						</li>
+						<li>
+							<a href="uiprolist?typeid=1">广西</a>
+							<div class="xgg">
+								<a href="">二级导航</a>
+								<a href="">二级导航</a>
+								<a href="">二级导航</a>
+								<a href="">二级导航</a>
+								<a href="">二级导航</a>
+								<a href="">二级导航</a>
+							</div>
+						</li>
+						<li>
+							<a href="uiprolist?typeid=1">新疆</a>
+							<div class="xgg">
+								<a href="">二级导航</a>
+								<a href="">二级导航</a>
+								<a href="">二级导航</a>
+								<a href="">二级导航</a>
+								<a href="">二级导航</a>
+								<a href="">二级导航</a>
+							</div>
+						</li>
+						<li>
+							<a href="uiprolist?typeid=1">西藏</a>
+							<div class="xgg">
+								<a href="">二级导航</a>
+								<a href="">二级导航</a>
+								<a href="">二级导航</a>
+								<a href="">二级导航</a>
+								<a href="">二级导航</a>
+								<a href="">二级导航</a>
+							</div>
+						</li>
+						<li>
+							<a href="uiprolist?typeid=1">青海</a>
+							<div class="xgg">
+								<a href="">二级导航</a>
+								<a href="">二级导航</a>
+								<a href="">二级导航</a>
+								<a href="">二级导航</a>
+								<a href="">二级导航</a>
+								<a href="">二级导航</a>
+							</div>
+						</li>
+						<li>
+							<a href="uiprolist?typeid=1">陕西</a>
+							<div class="xgg">
+								<a href="">二级导航</a>
+								<a href="">二级导航</a>
+								<a href="">二级导航</a>
+								<a href="">二级导航</a>
+								<a href="">二级导航</a>
+								<a href="">二级导航</a>
+							</div>
+						</li>
+						<li>
+							<a href="uiprolist?typeid=1">山西</a>
+							<div class="xgg">
+								<a href="">二级导航</a>
+								<a href="">二级导航</a>
+								<a href="">二级导航</a>
+								<a href="">二级导航</a>
+								<a href="">二级导航</a>
+								<a href="">二级导航</a>
+							</div>
+						</li>
+					</ul>
+					<div id="ppt">
+						<!--引入html结构-->
+						<!--轮播开始-->
+						<div class="pptbox" id="ppt01">
+							<ul class="innerwrapper">
+								<li>
+									<a href="#"><img src="img/nong1.jpg" style="background-size: 100% 100%;" /></a>
+								</li>
+								<li>
+									<a href="#"><img src="img/nong2.jpg" /></a>
+								</li>
+								<li>
+									<a href="#"><img src="img/nong3.jpg" /></a>
+								</li>
+							</ul>
+							<ul class="controls">
+								<li class="current">1</li>
+								<li>2</li>
+								<li>3</li>
+							</ul>
+							<span class="btnleft"></span>
+							<span class="btnright"></span>
+						</div>
+						<!--轮播结束-->
+					</div>
+				</div>
+
+				<!--二级导航 轮播结束-->
+
+				<!--翻牌特效开始-->
+				<ul id="recommpro" class="innerclass" style="margin-top: 20px;">
+					<li style="width: 234px;height: 170px;padding-left:0;margin-right: 2px;"><img src="img/demo-1-bg.jpg" style="width: 234px;height: 170px;padding-left:0;margin-right: 2px;"></li>
+					<li>
+						<a href="">
+
+							<div class="xa1">
+								<img src="img/shouji.png" style="width:316px;height:170px;">
+							</div>
+							<div class="xa2">
+								<img src="img/shouji.png" style="width:316px;height:170px;">
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<div class="xa1">
+								<img src="img/shouji.png" style="width:316px;height:170px;">
+							</div>
+							<div class="xa2">
+								<img src="img/shouji.png" style="width:316px;height:170px;">
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<div class="xa1">
+								<img src="img/shouji.png" style="width:316px;height:170px;">
+							</div>
+							<div class="xa2">
+								<img src="img/shouji.png" style="width:316px;height:170px;">
+							</div>
+
+						</a>
+					</li>
+				</ul>
+				<!--翻牌特效结束-->
+
+				<!--春夏秋冬开始-->
+				<div id="xbox666">
+
+					<div id="xc6">
+						<ul id="xh1">
+							<li id="head1" onmouseenter="showup(1);" class="show ">春</li>
+							<li id="head2" onmouseenter="showup(2);">夏</li>
+							<li id="head3" onmouseenter="showup(3);">秋</li>
+							<li id="head4" onmouseenter="showup(4);">冬</li>
+						</ul>
+					</div>
+
+					<div id="xc9">
+						<ul id="xh2">
+							<li id="content1" class="show ">
+								<div class="xcc1">
+									11
+									<img src="img/l8.jpg" style="width:219px;height:320px;"/>
+								</div>
+								<div class="xcc2">
+									12
+								</div>
+								<div class="xcc3">
+									13
+								</div>
+								<div class="xcc4">
+									14
+								</div>
+								<div class="xcc5">
+									15
+								</div>
+							</li>
+							<li id="content2">
+								<div class="xcc1">
+									21
+								</div>
+								<div class="xcc2">
+									22
+								</div>
+								<div class="xcc3">
+									23
+								</div>
+								<div class="xcc4">
+									24
+								</div>
+								<div class="xcc5">
+									25
+								</div>
+							</li>
+							<li id="content3">
+								<div class="xcc1">
+
+								</div>
+								<div class="xcc2">
+
+								</div>
+								<div class="xcc3">
+
+								</div>
+								<div class="xcc4">
+
+								</div>
+								<div class="xcc5">
+
+								</div>
+							</li>
+							<li id="content4">
+								<div class="xcc1">
+
+								</div>
+								<div class="xcc2">
+
+								</div>
+								<div class="xcc3">
+
+								</div>
+								<div class="xcc4">
+
+								</div>
+								<div class="xcc5">
+
+								</div>
+							</li>
+						</ul>
+						<!--<div id="c91">
+				
+				
+			         </div>-->
+
+					</div>
+				</div>
+
+				<!--春夏结束-->
+
+				<!--吃的开始-->
+				<div id="xdada" style="position: relative;margin-top: 50px;">
+					<div class="title" style="position: relative;left: 12px;">
+						&nbsp;&nbsp;吃的
+						<div class="xbox">
+
+						</div>
+					</div>
+					<ul id="prolist" class="innerclass" style="position: relative;top: 23px;">
+						<li class="first"id="xf1" style="margin-right: 15px;position: relative;">
+							<img src="img/l1.jpg" style="width:219px;height:211px;">
+							胡萝卜
+							<p class="description">
+								纯天然，无污染
+							</p>
+							<p class="price">30元</p>
+							<div class="xsl">
+
+							</div>
+						</li>
+						<li class="first" id="xf2" style="margin-right: 15px;">
+							<img src="img/l2.jpg" style="width:219px;height:211px;">
+							青椒
+							<p class="description">
+								纯天然，无污染
+							</p>
+							<p class="price">30元</p>
+							<div class="xsl">
+
+							</div>
+						</li>
+						<li class="first" style="margin-right: 15px;">
+							<img src="img/l3.jpg" style="width:219px;height:211px;"></a>
+							樱桃
+							<p class="description">
+								纯天然，无污染
+							</p>
+							<p class="price">30元</p>
+							<div class="xsl">
+
+							</div>
+						</li>
+						<li class="first" style="margin-right: 15px;">
+						<img src="img/l4.jpg" style="width:219px;height:211px;">
+							玉米
+							<p class="description">
+								纯天然，无污染
+							</p>
+							<p class="price">30元</p>
+							<div class="xsl">
+
+							</div>
+						</li>
+						<li class="first" style="margin-right: 15px;">
+							<img src="img/l5.jpg" style="width:219px;height:211px;">
+							桃子
+							<p class="description">
+								纯天然，无污染
+							</p>
+							<p class="price">30元</p>
+							<div class="xsl">
+
+							</div>
+						</li>
+
+					</ul>
+					<!--吃的结束-->
+
+					<!--穿的开始-->
+					<div style="position: relative;margin-top: 50px;">
+						<div class="title" style="position: relative;left: 12px;">
+							&nbsp;&nbsp;穿的
+							<div class="xbox">
+
+							</div>
+						</div>
+						<ul id="prolist" class="innerclass" style="position: relative;top: 23px;">
+							<li class="first" style="margin-right: 15px;">
+								<img src="img/O1CN01zUtzWz29JZiHdHhi5_!!0-saturn_solar.jpg_220x220.jpg_.webp" style="width:219px;height:211px;">
+								<a href="=" class="hastxt">橘子</a>
+								<p class="description">
+									纯天然，无污染
+								</p>
+								<p class="price">30元</p>
+								<div class="xsl">
+
+								</div>
+							</li>
+							<li class="first" style="margin-right: 15px;">
+							<img src="img/O1CN01zUtzWz29JZiHdHhi5_!!0-saturn_solar.jpg_220x220.jpg_.webp" style="width:219px;height:211px;">
+								<a href="=" class="hastxt">橘子</a>
+								<p class="description">
+									纯天然，无污染
+								</p>
+								<p class="price">999元</p>
+								<div class="xsl">
+
+								</div>
+							</li>
+							<li class="first" style="margin-right: 15px;">
+								<img src="img/O1CN01zUtzWz29JZiHdHhi5_!!0-saturn_solar.jpg_220x220.jpg_.webp" style="width:219px;height:211px;">
+								<a href="=" class="hastxt">橘子</a>
+								<p class="description">
+									纯天然，无污染
+								</p>
+								<p class="price">30元</p>
+								<div class="xsl">
+
+								</div>
+							</li>
+							<li class="first" style="margin-right: 15px;">
+							<img src="img/O1CN01zUtzWz29JZiHdHhi5_!!0-saturn_solar.jpg_220x220.jpg_.webp" style="width:219px;height:211px;">
+								<a href="=" class="hastxt">橘子</a>
+								<p class="description">
+									纯天然，无污染
+								</p>
+								<p class="price">88元</p>
+								<div class="xsl">
+
+								</div>
+							</li>
+							<li class="first" style="margin-right: 15px;">
+								<img src="img/O1CN01zUtzWz29JZiHdHhi5_!!0-saturn_solar.jpg_220x220.jpg_.webp" style="width:219px;height:211px;">
+								<a href="=" class="hastxt">橘子</a>
+								<p class="description">
+									纯天然，无污染
+								</p>
+								<p class="price">30元</p>
+								<div class="xsl">
+
+								</div>
+							</li>
+
+						</ul>
+						<!--穿的结束-->
+						<!--用的开始-->
+						<div style="position: relative;margin-top: 50px;">
+							<div class="title" style="position: relative;left: 12px;">
+								&nbsp;&nbsp;用的
+								<div class="xbox">
+
+								</div>
+							</div>
+							<ul id="prolist" class="innerclass" style="position: relative;top: 23px;">
+								<li class="first" style="margin-right: 15px;">
+									<img src="img/O1CN01zUtzWz29JZiHdHhi5_!!0-saturn_solar.jpg_220x220.jpg_.webp" style="width:219px;height:211px;">
+									<a href="=" class="hastxt">橘子</a>
+									<p class="description">
+										纯天然，无污染
+									</p>
+									<p class="price">30元</p>
+									<div class="xsl">
+
+									</div>
+								</li>
+								<li class="first" style="margin-right: 15px;">
+									<img src="img/O1CN01zUtzWz29JZiHdHhi5_!!0-saturn_solar.jpg_220x220.jpg_.webp" style="width:219px;height:211px;">
+									<a href="=" class="hastxt">橘子</a>
+									<p class="description">
+										纯天然，无污染
+									</p>
+									<p class="price">30元</p>
+									<div class="xsl">
+
+									</div>
+								</li>
+								<li class="first" style="margin-right: 15px;">
+									<img src="img/O1CN01zUtzWz29JZiHdHhi5_!!0-saturn_solar.jpg_220x220.jpg_.webp" style="width:219px;height:211px;">
+									<a href="=" class="hastxt">橘子</a>
+									<p class="description">
+										纯天然，无污染
+									</p>
+									<p class="price">30元</p>
+									<div class="xsl">
+
+									</div>
+								</li>
+								<li class="first" style="margin-right: 15px;">
+									<img src="img/O1CN01zUtzWz29JZiHdHhi5_!!0-saturn_solar.jpg_220x220.jpg_.webp" style="width:219px;height:211px;">
+									<a href="=" class="hastxt">橘子</a>
+									<p class="description">
+										222222222222222222
+									</p>
+									<p class="price">30元</p>
+									<div class="xsl">
+
+									</div>
+								</li>
+								<li class="first" style="margin-right: 15px;">
+									<img src="img/O1CN01zUtzWz29JZiHdHhi5_!!0-saturn_solar.jpg_220x220.jpg_.webp" style="width:219px;height:211px;">
+									<a href="=" class="hastxt">橘子</a>
+									<p class="description">
+										纯天然，无污染
+									</p>
+									<p class="price">30元</p>
+									<div class="xsl">
+
+									</div>
+								</li>
+
+							</ul>
+							<!--用的结束-->
+							<div id="wrap" style="margin-top: 150px;">
+								<div id="head">
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+								</div>
+							</div>
+
+						</div>
+						<!--主体结束-->
+
+						<!--底部开始-->
+						<div id="footer">
+							<div id="service" class="innerclass">
+								<a href="###" style="background-image: url(img/icon1.png);">预约维修服务</a> |
+								<a href="###" style="background-image: url(img/icon2.png);">7天无理由退货</a> |
+								<a href="###" style="background-image: url(img/icon3.png);">15天免费换货</a> |
+								<a href="###" style="background-image: url(img/icon4.png);">满150元包邮</a> |
+								<a href="###" style="background-image: url(img/icon5.png);">520余家售后 </a>
+							</div>
+
+							<div id="bottomwrapper" class="innerclass">
+								<div id="bottomleft">
+									<dl>
+										<dt>帮助中心</dt>
+										<dd>账户管理</dd>
+										<dd>购物指南</dd>
+										<dd>订单操作</dd>
+									</dl>
+									<dl>
+										<dt>帮助中心</dt>
+										<dd>账户管理</dd>
+										<dd>购物指南</dd>
+										<dd>订单操作</dd>
+									</dl>
+									<dl>
+										<dt>帮助中心</dt>
+										<dd>账户管理</dd>
+										<dd>购物指南</dd>
+										<dd>订单操作</dd>
+									</dl>
+									<dl>
+										<dt>帮助中心</dt>
+										<dd>账户管理</dd>
+										<dd>购物指南</dd>
+										<dd>订单操作</dd>
+									</dl>
+									<dl>
+										<dt>帮助中心</dt>
+										<dd>账户管理</dd>
+										<dd>购物指南</dd>
+										<dd>订单操作</dd>
+									</dl>
+									<dl>
+										<dt>帮助中心</dt>
+										<dd>账户管理</dd>
+										<dd>购物指南</dd>
+										<dd>订单操作</dd>
+									</dl>
+								</div>
+								<div id="bottomright">
+									<img src="img/bottomright.png" />
+								</div>
+							</div>
+
+							<div id="copyright" class="innerclass" style="position: relative;">
+								<img src="img/lu.png" style="background-color: orangered;width: 56px;height: 56px;position: absolute;left: 0px;top: 24px;">
+								<p class="first">
+									<a href="###">小米商城</a> |
+									<a href="###">miui</a> |
+									<a href="###">米聊</a> |
+									<a href="###">游戏</a> |
+									<a href="###">多看阅读</a> |
+									<a href="###">小城</a> |
+									<a href="###">游戏</a> |
+									<a href="###">小米商城</a> |
+									<a href="###">游戏</a> |
+									<a href="###">小米</a>
+								</p>
+								<p> ICP备案号 数 蜀 ICB 55234441212 京公安备案 ：sssss223222</p>
+								<p>违法和不良信息举报电话：12315 </p>
+							</div>
+
+						</div>
+						<!--底部结束-->
+					</div>
+
+					<!--引入jq库 -->
+					<script src="js/jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script>
+					<!--引入轮播的插件  插件就是具有一定结构和功能的代码 注意:先进入jq库 ,后引入插件文件 -->
+					<script src="js/tyslide.js" type="text/javascript" charset="utf-8"></script>
+
+					<script type="text/javascript">
+						$("#ppt01").tyslide({
+							boxh: 460, //盒子的高度
+							w: 992, //盒子的宽度
+							h: 460, //图片的高度
+							isShow: true, //是否显示控制器
+							isShowBtn: true, //是否显示左右按钮
+							controltop: 10, //控制按钮上下偏移的位置,要将按钮向下移动   首先保证boxh 高度>图片 h
+							controlsW: 60, //控制按钮宽度
+							controlsH: 10, //控制按钮高度
+							radius: 5, //控制按钮圆角度数
+							controlsColor: "#FECA14", //普通控制按钮的颜色
+							controlsCurrentColor: "#FF6700" //当前控制按钮的颜色
+						});
+
+						/*页签*/
+						function showup(num) {
+							document.getElementById("head1").className = "";
+							document.getElementById("head2").className = "";
+							document.getElementById("head3").className = "";
+							document.getElementById("head4").className = "";
+
+							document.getElementById("head" + num).className = "show";
+
+							document.getElementById("content1").className = "";
+							document.getElementById("content2").className = "";
+							document.getElementById("content3").className = "";
+							document.getElementById("content4").className = "";
+
+							document.getElementById("content" + num).className = "show";
+
+						}
+
+						/*2级导航*/
+						$("#leftnav li").mouseenter(function() {
+
+							$(this).find(".xgg").stop(true, true).slideDown();
+						});
+
+						$("#leftnav li").mouseleave(function() {
+
+							$(this).find(".xgg").stop(true, true).slideUp();
+						});
+						/*网页换肤*/
+
+						var lists = document.querySelectorAll(".xa span")
+						for(var i = 0; i < lists.length; i++) {
+							lists[i].onclick = function() {
+								var v = this.className;
+								switch(v) {
+									case "lu":
+										document.getElementById("mycss").href = "css/css1.css";
+										break;
+									case "red":
+										document.getElementById("mycss").href = "css/css2.css";
+										break;
+									case "y":
+										document.getElementById("mycss").href = "css/css3.css";
+										break;
+										console.log(v);
+								}
+
+							}
+						}
+
+						/*上拉*/
+						$("#prolist li").mouseenter(function() {
+							$(this).find(".xsl").stop(true, true).fadeIn(500);
+
+						});
+
+						$("#prolist li").mouseleave(function() {
+
+							$(this).find(".xsl").stop(true, true).fadeOut(500);
+						});
+
+						/*传参*/
+				
+						
+						
+						
+						var listsbox=document.querySelectorAll("#xdada #prolist li")
+			{
+				for(var iii = 0; iii < listsbox.length; iii++)
+				{
+					listsbox[iii].onclick = function() 
+					{
+						var that=this;
+						
+						
+						var ve=that.innerHTML;
+						var student = { //一个json数据
+								"name": ve,
+								"age": iii
+							}
+						
+						var strStudent = JSON.stringify(student); //将json转化为字符串strStudent。
+							localStorage.setItem('key', strStudent); //对应方法2，将数据存储在HTML5的localStorage中。
+
+							location.href = "nongcanpingxiangqing.html?student=" + window.encodeURIComponent(strStudent);
+						
+						}
+					
+		            }
+			    }		
+			    
+			    
+			    
+			    	
+						var listsbox2=document.querySelectorAll("#xh2  li div")
+			{
+				for(var ii = 0; ii < listsbox2.length; ii++)
+				{
+					listsbox2[ii].onclick = function() 
+					{
+						var that=this;
+						
+						
+						var ve2=that.innerHTML;
+				
+						var student = { //一个json数据
+								"name": ve2,
+								"age": ii,
+								"tutu":t2
+								/*"jiage":
+								"mingz":*/
+							}
+						
+						var strStudent = JSON.stringify(student); //将json转化为字符串strStudent。
+							localStorage.setItem('key', strStudent); //对应方法2，将数据存储在HTML5的localStorage中。
+
+							location.href = "nongcanpingxiangqing.html?student=" + window.encodeURIComponent(strStudent);
+						
+						}
+					
+		            }
+			    }		
+					</script>
+
+	</body>
+
+</html>

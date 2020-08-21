@@ -1,0 +1,85 @@
+#loginheader{
+	width: 100%;
+	height:98px;
+}
+
+#main{
+	width: 100%;
+	height: 588px;
+	background-color:#2F2F37;
+	background-image: url(../img/loginbg.jpg);
+	background-position: center center; 
+}
+
+#loginform{
+	width: 410px;
+	height: 500px;
+	background-color:#fff;
+	position: absolute;
+	right: 0;
+	top:30px;
+	background-image: url(../img/loginbottom.png);
+	background-repeat: no-repeat;
+	background-position: 0 bottom;
+}
+
+#loginform p.title{
+	height: 76px;
+	font-size: 28px;
+	color:#E0E0E0;
+	text-align: center;
+	padding-top: 30px;
+	
+}
+
+#loginform p.title span{
+	color: #ff6600;
+}
+
+#loginform p.title #saocode{
+	color: #666;
+}
+
+#loginform p.ff{
+	height: 40px;
+	width: 346px;
+	border: solid 1px #ccc;
+	margin: 0 auto;
+}
+
+#loginform p.ff input{
+	border: 0;
+	width: 340px;
+	height:40px;
+	outline: none;
+	padding-left: 5px;
+}
+
+#btnlogin{
+	width: 348px;
+	height: 50px;
+	background-color: #ff6600;
+	color: #fff;
+	border: 0;
+	outline: none;
+	cursor: pointer;
+}
+
+#loginform p.btn
+{
+	padding-left:32px;
+	padding-top: 20px;
+}
+
+.forgetpassword{
+	text-align: right;
+	color: #333;
+	padding-right: 29px;
+	padding-top: 5px;
+}
+
+.forgetpassword a{
+	font-size: 14px;
+	text-decoration: none;
+	color: #333;
+}

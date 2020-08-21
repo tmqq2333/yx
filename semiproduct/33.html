@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>鼠标跟随粒子效果</title>
+		<!--引入公共样式表-->
+		<link rel="stylesheet" type="text/css" href="css/common.css"/>
+		<!--引入私有样式表-->
+		<link rel="stylesheet" type="text/css" href="css/login.css"/>
+
+		<style type="text/css">
+			body {
+				padding: 0;
+				margin: 0;
+				font: 12px sans-serif;
+				background-color: red;
+				overflow: hidden;
+			}
+			
+			canvas {
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			.dg {
+				/** Clear list styles */
+				/* Auto-place container */
+				/* Auto-placed GUI's */
+				/* Line items that don't contain folders. */
+				/** Folder names */
+				/** Hides closed items */
+				/** Controller row */
+				/** Name-half (left) */
+				/** Controller-half (right) */
+				/** Controller placement */
+				/** Shorter number boxes when slider is present. */
+				/** Ensure the entire boolean and function row shows a hand */
+			}
+			
+			.dg ul {
+				list-style: none;
+				margin: 0;
+				padding: 0;
+				width: 100%;
+				clear: both;
+			}
+			
+			.dg.ac {
+				position: fixed;
+				top: 0;
+				left: 0;
+				right: 0;
+				height: 0;
+				z-index: 0;
+			}
+			
+			.dg:not(.ac) .main {
+				/** Exclude mains in ac so that we don't hide close button */
+				overflow: hidden;
+			}
+			
+			.dg.main {
+				-webkit-transition: opacity 0.1s linear;
+				-o-transition: opacity 0.1s linear;
+				-moz-transition: opacity 0.1s linear;
+				transition: opacity 0.1s linear;
+			}
+			
+			.dg.main.taller-than-window {
+				overflow-y: auto;
+			}
+			
+			.dg.main.taller-than-window .close-button {
+				opacity: 1;
+				/* TODO, these are style notes */
+				margin-top: -1px;
+				border-top: 1px solid #2c2c2c;
+			}
+			
+			.dg.main ul.closed .close-button {
+				opacity: 1 !important;
+			}
+			
+			.dg.main:hover .close-button,
+			.dg.main .close-button.drag {
+				opacity: 1;
+			}
+			
+			.dg.main .close-button {
+				/*opacity: 0;*/
+				-webkit-transition: opacity 0.1s linear;
+				-o-transition: opacity 0.1s linear;
+				-moz-transition: opacity 0.1s linear;
+				transition: opacity 0.1s linear;
+				border: 0;
+				position: absolute;
+				line-height: 19px;
+				height: 20px;
+				/* TODO, these are style notes */
+				cursor: pointer;
+				text-align: center;
+				background-color: #000;
+			}
+			
+			.dg.main .close-button:hover {
+				background-color: #111;
+			}
+			
+			.dg.a {
+				float: right;
+				margin-right: 15px;
+				overflow-x: hidden;
+			}
+			
+			.dg.a.has-save>ul {
+				margin-top: 27px;
+			}
+			
+			.dg.a.has-save>ul.closed {
+				margin-top: 0;
+			}
+			
+			.dg.a .save-row {
+				position: fixed;
+				top: 0;
+				z-index: 1002;
+			}
+			
+			.dg li {
+				-webkit-transition: height 0.1s ease-out;
+				-o-transition: height 0.1s ease-out;
+				-moz-transition: height 0.1s ease-out;
+				transition: height 0.1s ease-out;
+			}
+			
+			.dg li:not(.folder) {
+				cursor: auto;
+				height: 27px;
+				line-height: 27px;
+				overflow: hidden;
+				padding: 0 4px 0 5px;
+			}
+			
+			.dg li.folder {
+				padding: 0;
+				border-left: 4px solid rgba(0, 0, 0, 0);
+			}
+			
+			.dg li.title {
+				cursor: pointer;
+				margin-left: -4px;
+			}
+			
+			.dg .closed li:not(.title),
+			.dg .closed ul li,
+			.dg .closed ul li>* {
+				height: 0;
+				overflow: hidden;
+				border: 0;
+			}
+			
+			.dg .cr {
+				clear: both;
+				padding-left: 3px;
+				height: 27px;
+			}
+			
+			.dg .property-name {
+				cursor: default;
+				float: left;
+				clear: left;
+				width: 40%;
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
+			
+			.dg .c {
+				float: left;
+				width: 60%;
+			}
+			
+			.dg .c input[type=text] {
+				border: 0;
+				margin-top: 4px;
+				padding: 3px;
+				width: 100%;
+				float: right;
+			}
+			
+			.dg .has-slider input[type=text] {
+				width: 30%;
+				/*display: none;*/
+				margin-left: 0;
+			}
+			
+			.dg .slider {
+				float: left;
+				width: 66%;
+				margin-left: -5px;
+				margin-right: 0;
+				height: 19px;
+				margin-top: 4px;
+			}
+			
+			.dg .slider-fg {
+				height: 100%;
+			}
+			
+			.dg .c input[type=checkbox] {
+				margin-top: 9px;
+			}
+			
+			.dg .c select {
+				margin-top: 5px;
+			}
+			
+			.dg .cr.function,
+			.dg .cr.function .property-name,
+			.dg .cr.function *,
+			.dg .cr.boolean,
+			.dg .cr.boolean * {
+				cursor: pointer;
+			}
+			
+			.dg .selector {
+				display: none;
+				position: absolute;
+				margin-left: -9px;
+				margin-top: 23px;
+				z-index: 10;
+			}
+			
+			.dg .c:hover .selector,
+			.dg .selector.drag {
+				display: block;
+			}
+			
+			.dg li.save-row {
+				padding: 0;
+			}
+			
+			.dg li.save-row .button {
+				display: inline-block;
+				padding: 0px 6px;
+			}
+			
+			.dg.dialogue {
+				background-color: #222;
+				width: 460px;
+				padding: 15px;
+				font-size: 13px;
+				line-height: 15px;
+			}
+			/* TODO Separate style and structure */
+			
+			#dg-new-constructor {
+				padding: 10px;
+				color: #222;
+				font-family: Monaco, monospace;
+				font-size: 10px;
+				border: 0;
+				resize: none;
+				box-shadow: inset 1px 1px 1px #888;
+				word-wrap: break-word;
+				margin: 12px 0;
+				display: block;
+				width: 440px;
+				overflow-y: scroll;
+				height: 100px;
+				position: relative;
+			}
+			
+			#dg-local-explain {
+				display: none;
+				font-size: 11px;
+				line-height: 17px;
+				border-radius: 3px;
+				background-color: #333;
+				padding: 8px;
+				margin-top: 10px;
+			}
+			
+			#dg-local-explain code {
+				font-size: 10px;
+			}
+			
+			#dat-gui-save-locally {
+				display: none;
+			}
+			/** Main type */
+			
+			.dg {
+				color: #eee;
+				font: 11px 'Lucida Grande', sans-serif;
+				text-shadow: 0 -1px 0 #111;
+				/** Auto place */
+				/* Controller row, <li> */
+				/** Controllers */
+			}
+			
+			.dg.main {
+				/** Scrollbar */
+			}
+			
+			.dg.main::-webkit-scrollbar {
+				width: 5px;
+				background: #1a1a1a;
+			}
+			
+			.dg.main::-webkit-scrollbar-corner {
+				height: 0;
+				display: none;
+			}
+			
+			.dg.main::-webkit-scrollbar-thumb {
+				border-radius: 5px;
+				background: #676767;
+			}
+			
+			.dg li:not(.folder) {
+				background: #1a1a1a;
+				border-bottom: 1px solid #2c2c2c;
+			}
+			
+			.dg li.save-row {
+				line-height: 25px;
+				background: #dad5cb;
+				border: 0;
+			}
+			
+			.dg li.save-row select {
+				margin-left: 5px;
+				width: 108px;
+			}
+			
+			.dg li.save-row .button {
+				margin-left: 5px;
+				margin-top: 1px;
+				border-radius: 2px;
+				font-size: 9px;
+				line-height: 7px;
+				padding: 4px 4px 5px 4px;
+				background: #c5bdad;
+				color: #fff;
+				text-shadow: 0 1px 0 #b0a58f;
+				box-shadow: 0 -1px 0 #b0a58f;
+				cursor: pointer;
+			}
+			
+			.dg li.save-row .button.gears {
+				background: #c5bdad url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAANCAYAAAB/9ZQ7AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAQJJREFUeNpiYKAU/P//PwGIC/ApCABiBSAW+I8AClAcgKxQ4T9hoMAEUrxx2QSGN6+egDX+/vWT4e7N82AMYoPAx/evwWoYoSYbACX2s7KxCxzcsezDh3evFoDEBYTEEqycggWAzA9AuUSQQgeYPa9fPv6/YWm/Acx5IPb7ty/fw+QZblw67vDs8R0YHyQhgObx+yAJkBqmG5dPPDh1aPOGR/eugW0G4vlIoTIfyFcA+QekhhHJhPdQxbiAIguMBTQZrPD7108M6roWYDFQiIAAv6Aow/1bFwXgis+f2LUAynwoIaNcz8XNx3Dl7MEJUDGQpx9gtQ8YCueB+D26OECAAQDadt7e46D42QAAAABJRU5ErkJggg==) 2px 1px no-repeat;
+				height: 7px;
+				width: 8px;
+			}
+			
+			.dg li.save-row .button:hover {
+				background-color: #bab19e;
+				box-shadow: 0 -1px 0 #b0a58f;
+			}
+			
+			.dg li.folder {
+				border-bottom: 0;
+			}
+			
+			.dg li.title {
+				padding-left: 16px;
+				background: black url(data:image/gif;base64,R0lGODlhBQAFAJEAAP////Pz8////////yH5BAEAAAIALAAAAAAFAAUAAAIIlI+hKgFxoCgAOw==) 6px 10px no-repeat;
+				cursor: pointer;
+				border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+			}
+			
+			.dg .closed li.title {
+				background-image: url(data:image/gif;base64,R0lGODlhBQAFAJEAAP////Pz8////////yH5BAEAAAIALAAAAAAFAAUAAAIIlGIWqMCbWAEAOw==);
+			}
+			
+			.dg .cr.boolean {
+				border-left: 3px solid #806787;
+			}
+			
+			.dg .cr.function {
+				border-left: 3px solid #e61d5f;
+			}
+			
+			.dg .cr.number {
+				border-left: 3px solid #2fa1d6;
+			}
+			
+			.dg .cr.number input[type=text] {
+				color: #2fa1d6;
+			}
+			
+			.dg .cr.string {
+				border-left: 3px solid #1ed36f;
+			}
+			
+			.dg .cr.string input[type=text] {
+				color: #1ed36f;
+			}
+			
+			.dg .cr.function:hover,
+			.dg .cr.boolean:hover {
+				background: #111;
+			}
+			
+			.dg .c input[type=text] {
+				background: #303030;
+				outline: none;
+			}
+			
+			.dg .c input[type=text]:hover {
+				background: #3c3c3c;
+			}
+			
+			.dg .c input[type=text]:focus {
+				background: #494949;
+				color: #fff;
+			}
+			
+			.dg .c .slider {
+				background: #303030;
+				cursor: ew-resize;
+			}
+			
+			.dg .c .slider-fg {
+				background: #2fa1d6;
+			}
+			
+			.dg .c .slider:hover {
+				background: #3c3c3c;
+			}
+			
+			.dg .c .slider:hover .slider-fg {
+				background: #44abda;
+			}
+		</style>
+	</head>
+
+	<body>
+		
+
+		<script src="js/mdn.js"></script>
+
+		<canvas id="c" width="1366" height="162" ></canvas>
+
+		<script>
+			/**
+			 * requestAnimationFrame
+			 */
+			window.requestAnimationFrame = (function() {
+				return window.requestAnimationFrame ||
+					window.webkitRequestAnimationFrame ||
+					window.mozRequestAnimationFrame ||
+					window.oRequestAnimationFrame ||
+					window.msRequestAnimationFrame ||
+					function(callback) { window.setTimeout(callback, 1000 / 60); };
+			})();
+
+			/**
+			 * Twinkle
+			 */
+			var Twinkle = (function() {
+
+				// Config
+
+				var STAR_VERTEX_NUMS = [4, 6, 8, 10, 12],
+					MAX_STAR_NUM = 2500;
+
+				/**
+				 * @constructor
+				 */
+				function Twinkle(starColor, starRadius, starBlur) {
+					this.initSymbols(starColor, starRadius, starBlur);
+
+					this.particles = [];
+					this._pool = [];
+					this.mouse = new Mouse();
+				}
+
+				Twinkle.prototype = {
+					mouse: null,
+					gravity: 0.035,
+
+					initSymbols: function(color, radius, blur) {
+						this._symbols = new Symbols(color, radius, blur);
+					},
+
+					render: function(ctx) {
+						var particles = this.particles,
+							mouse = this.mouse,
+							gravity = this.gravity,
+							speedRatio,
+							magMax,
+							magMin,
+							scaleMax,
+							symbols = this._symbols,
+							symbolNum = this._symbols.length,
+							symbol,
+							size = this._symbols.size,
+							radius = this._symbols.size * 0.5,
+							drawSize,
+							drawSizeHalf,
+							drawScale,
+							canvasWidth = ctx.canvas.width,
+							canvasHeight = ctx.canvas.height,
+							fieldLeft,
+							fieldRight,
+							fieldTop,
+							fieldBottom,
+							i, len, p;
+
+						speedRatio = Math.min((mouse.speedX * mouse.speedX + mouse.speedY * mouse.speedY) * 0.005, 1);
+
+						if(particles.length < MAX_STAR_NUM) {
+							magMax = 0.5 + 4.5 * speedRatio;
+							magMin = 0.1 + 0.5 * speedRatio;
+							scaleMax = 0.5 + 0.5 * speedRatio;
+							len = (3 * Math.random() | 0) + (20 * speedRatio | 0);
+							for(i = 0; i < len; i++) this._createParticle(magMin, magMax, scaleMax);
+						}
+
+						fieldLeft = -canvasWidth * 0.5;
+						fieldRight = canvasWidth * 1.5;
+						fieldTop = -canvasHeight * 0.5;
+						fieldBottom = canvasHeight * 1.5;
+
+						for(i = 0, len = particles.length; i < len; i++) {
+							p = particles[i];
+
+							p.vx += mouse.speedX * 0.03 * speedRatio;
+							p.vy += mouse.speedY * 0.03 * speedRatio + gravity;
+							p.x += p.vx + mouse.speedX;
+							p.y += p.vy + mouse.speedY;
+							p.scale -= 0.005;
+							p.angle += Math.random();
+
+							if(
+								p.x + radius < fieldLeft ||
+								p.x - radius > fieldRight ||
+								p.y + radius < fieldTop ||
+								p.y - radius > fieldBottom ||
+								p.scale <= 0
+							) {
+								this._pool.push(p);
+								particles.splice(i, 1);
+								len--;
+								i--;
+								continue;
+							}
+
+							drawScale = p.scale;
+
+							symbol = symbols[symbolNum * Math.random() | 0];
+							if(Math.random() < 0.7) drawScale *= 0.2;
+							drawSize = size * drawScale;
+							drawSizeHalf = drawSize * 0.5;
+
+							ctx.save();
+							ctx.globalCompositeOperation = 'lighter';
+							ctx.translate(p.x, p.y);
+							ctx.rotate(p.angle);
+							ctx.drawImage(symbol, 0, 0, size, size, -drawSizeHalf, -drawSizeHalf, drawSize, drawSize);
+							ctx.restore();
+						}
+
+						ctx.fill();
+
+						mouse.speedX = mouse.speedY = 0;
+					},
+
+					_createParticle: function(magMin, magMax, scaleMax) {
+						var mag = magMin + (magMax - magMin) * Math.random(),
+							angle = Math.PI * 2 * Math.random(),
+							p = this._pool.length ? this._pool.shift() : new Particle();
+
+						p.init(
+							this.mouse.x,
+							this.mouse.y,
+							mag * Math.cos(angle),
+							mag * Math.sin(angle),
+							scaleMax * Math.random(),
+							Math.PI * 2 * Math.random()
+						);
+
+						this.particles.push(p);
+					}
+				};
+
+				/**
+				 * Mouse
+				 * @private
+				 */
+				function Mouse(x, y) {
+					this.x = x || 0;
+					this.y = y || 0;
+				}
+
+				Mouse.prototype = {
+					x: 0,
+					y: 0,
+					speedX: 0,
+					speedY: 0,
+
+					update: function(x, y) {
+						this.speedX = (this.x - x) * 0.7;
+						this.speedY = (this.y - y) * 0.7;
+						this.x = x;
+						this.y = y;
+					}
+				};
+
+				/**
+				 * Symbols
+				 * @see STAR_VERTEX_NUMS
+				 * @private
+				 */
+				function Symbols(color, radius, blur) {
+					this.color = parseColor(color);
+					this.size = (radius + blur) * 2;
+
+					for(var i = 0, len = STAR_VERTEX_NUMS.length; i < len; i++) {
+						this.push(this._createSymbol(STAR_VERTEX_NUMS[i], radius, blur));
+					}
+				}
+
+				Symbols.prototype = [];
+
+				Symbols.prototype._createSymbol = function(vertexNum, radius, blur) {
+					var canvas,
+						context,
+						size = this.size,
+						center = this.size / 2,
+						color = this.color;
+
+					canvas = document.createElement('canvas');
+					canvas.width = canvas.height = size;
+
+					context = canvas.getContext('2d');
+					context.fillStyle = colorToString(color[0], color[1], color[2], color[3], color[4]);
+					context.shadowBlur = blur;
+					context.shadowColor = colorToString(color[0], color[1], color[2], color[3], color[4] * 0.75);
+
+					var i, len, r, a;
+
+					context.beginPath();
+					for(i = 1, len = vertexNum * 2; i <= len; i++) {
+						r = i % 2 ? radius * 0.1 : radius;
+						a = Math.PI * 2 * i / len;
+						context[i === 1 ? 'moveTo' : 'lineTo'](center + r * Math.cos(a), center + r * Math.sin(a));
+					}
+					context.fill();
+
+					return canvas;
+				};
+
+				/**
+				 * Particle
+				 * @private
+				 */
+				function Particle(x, y, vx, vy, scale, angle) {
+					this.init(x, y, vx, vy, scale, angle);
+				}
+
+				Particle.prototype.init = function(x, y, vx, vy, scale, angle) {
+					this.x = x || 0;
+					this.y = y || 0;
+					this.vx = vx || 0;
+					this.vy = vy || 0;
+					this.scale = scale || 0;
+					this.angle = angle || 0;
+				};
+
+				// Helpers
+
+				var parseColor = (function() {
+
+					var RE_RGB = /^rgb\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*\)$/,
+						RE_RGBA = /^rgba\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*,\s*([\d\.]+)\s*\)$/,
+						RE_HSL = /^hsl\(\s*([\d\.]+)\s*,\s*([\d\.]+)%\s*,\s*([\d\.]+)%\s*\)$/,
+						RE_HSLA = /^hsla\(\s*([\d\.]+)\s*,\s*([\d\.]+)%\s*,\s*([\d\.]+)%\s*,\s*([\d\.]+)\s*\)$/,
+						RE_HEX = /^([0-9a-fA-F]{2})([0-9a-fA-F]{2})([0-9a-fA-F]{2})$/; // 6 digit
+
+					return function(str) {
+						str = str.replace(/^\s*#|\s*$/g, '');
+						str = str.toLowerCase();
+
+						var match;
+
+						// RGB(A)
+						if((match = str.match(RE_RGB) || str.match(RE_RGBA))) {
+							return [
+								'rgba',
+								parseInt(match[1], 10),
+								parseInt(match[2], 10),
+								parseInt(match[3], 10),
+								parseFloat(match.length === 4 ? 1 : match[4])
+							];
+						}
+
+						// HSL(A)
+						if((match = str.match(RE_HSL) || str.match(RE_HSLA))) {
+							return [
+								'hsla',
+								parseFloat(match[1]),
+								parseFloat(match[2]),
+								parseFloat(match[3]),
+								parseFloat(match.length === 4 ? 1 : match[4])
+							];
+						}
+
+						// Hex
+						if(str.length === 3) {
+							// Hex 3 digit -> 6 digit
+							str = str.replace(/(.)/g, '$1$1');
+						}
+						if((match = str.match(RE_HEX))) {
+							return [
+								'rgba',
+								parseInt(match[1], 16),
+								parseInt(match[2], 16),
+								parseInt(match[3], 16),
+								1
+							];
+						}
+
+						return null;
+					};
+
+				})();
+
+				function colorToString(type, v0, v1, v2, a) {
+					if(type === 'rgba') return 'rgba(' + v0 + ',' + v1 + ',' + v2 + ',' + a + ')';
+					if(type === 'hsla') return 'hsla(' + v0 + ',' + v1 + '%,' + v2 + '%,' + a + ')';
+					else return '';
+				}
+
+				return Twinkle;
+
+			})();
+
+			// Initialize
+
+			(function() {
+
+				// Configs
+
+				var Configs = {
+					backgroundColor: '#0d2234',
+					starColor: '#FFFFFF',
+					starRadius: 12,
+					starBlur: 4
+				};
+
+				// Vars
+
+				var canvas,
+					context,
+					canvasBound,
+					grad,
+					twinkle,
+					gui,
+					timeoutId;
+
+				// Initialize
+
+				function init() {
+					canvas = document.getElementById('c');
+					context = canvas.getContext('2d');
+
+					onWindowResize(null);
+
+					twinkle = new Twinkle(Configs.starColor, Configs.starRadius, Configs.starBlur);
+					twinkle.mouse.x = canvas.width / 2;
+					twinkle.mouse.y = canvas.height / 2;
+
+					window.addEventListener('resize', onWindowResize, false);
+					canvas.addEventListener('mousemove', onCanvasMouseMove, false);
+					canvas.addEventListener('mouseout', onCanvasMouseOut, false);
+
+					gui = new dat.GUI();
+					gui.addColor(Configs, 'backgroundColor').name('Background');
+					gui.addColor(Configs, 'starColor').name('Star Color').onChange(onGUISymbolSettingChange);
+					gui.add(Configs, 'starRadius', 1, 30).name('Star Radius').step(1).onChange(onGUISymbolSettingChange);
+					gui.add(Configs, 'starBlur', 0, 16).name('Star Blur').step(1).onChange(onGUISymbolSettingChange);
+					gui.close();
+
+					update();
+				}
+
+				// Event listeners
+
+				function onWindowResize(e) {
+					canvas.width = window.innerWidth;
+					canvas.height = window.innerHeight;
+					canvasBound = canvas.getBoundingClientRect();
+
+					var cx = canvas.width * 0.5,
+						cy = canvas.height * 0.5;
+					grad = context.createRadialGradient(cx, cy, 0, cx, cy, Math.sqrt(cx * cx + cy * cy));
+					grad.addColorStop(0, 'rgba(0, 0, 0, 0)');
+					grad.addColorStop(1, 'rgba(0, 0, 0, 0.35)');
+				}
+
+				function onCanvasMouseMove(e) {
+					twinkle.mouse.update(e.clientX - canvasBound.left, e.clientY - canvasBound.top);
+					autoPos.enable = false;
+				}
+
+				function onCanvasMouseOut(e) {}
+
+				function onGUISymbolSettingChange() {
+					if(timeoutId) clearTimeout(timeoutId);
+
+					timeoutId = setTimeout(function() {
+						twinkle.initSymbols(Configs.starColor, Configs.starRadius, Configs.starBlur);
+					}, 300);
+				}
+
+				// Update
+
+				function update() {
+					context.fillStyle = Configs.backgroundColor;
+					context.fillRect(0, 0, canvas.width, canvas.height);
+					context.fillStyle = grad;
+					context.fillRect(0, 0, canvas.width, canvas.height);
+
+					twinkle.render(context);
+
+					requestAnimationFrame(update);
+				}
+
+				// Run
+
+				init();
+
+			})();
+		</script>
+		<div class="dg ac">
+			<div class="dg main a" style="width: 245px;">
+				<div style="width: 6px; margin-left: -3px; height: 0px; cursor: ew-resize; position: absolute;"></div>
+				<ul class="closed" style="height: auto;">
+					<li class="cr string color" style="border-left-color: rgb(13, 34, 52);">
+						<div><span class="property-name">Background</span>
+							<div class="c"><input type="text" style="outline: none; text-align: center; color: rgb(255, 255, 255); border: 0px; font-weight: bold; text-shadow: rgba(0, 0, 0, 0.7) 0px 1px 1px; background-color: rgb(13, 34, 52);">
+								<div class="selector" style="width: 122px; height: 102px; padding: 3px; background-color: rgb(34, 34, 34); box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 3px;">
+									<div class="field-knob" style="position: absolute; width: 12px; height: 12px; border: 2px solid rgb(255, 255, 255); box-shadow: rgba(0, 0, 0, 0.5) 0px 1px 3px; border-radius: 12px; z-index: 1; margin-left: 68px; margin-top: 72.6078px; background-color: rgb(13, 34, 52);"></div>
+									<div class="saturation-field" style="width: 100px; height: 100px; border: 1px solid rgb(85, 85, 85); margin-right: 3px; display: inline-block; cursor: pointer; background: -webkit-linear-gradient(left, rgb(255, 255, 255) 0%, rgb(0, 137, 255) 100%);">
+										<div style="width: 100%; height: 100%; background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%);"></div>
+									</div>
+									<div class="hue-field" style="width: 15px; height: 100px; display: inline-block; border: 1px solid rgb(85, 85, 85); cursor: ns-resize; background: -webkit-linear-gradient(top, rgb(255, 0, 0) 0%, rgb(255, 0, 255) 17%, rgb(0, 0, 255) 34%, rgb(0, 255, 255) 50%, rgb(0, 255, 0) 67%, rgb(255, 255, 0) 84%, rgb(255, 0, 0) 100%);">
+										<div class="hue-knob" style="position: absolute; width: 15px; height: 2px; border-right: 4px solid rgb(255, 255, 255); z-index: 1; margin-top: 42.3077px;"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="cr string color" style="border-left-color: rgb(255, 255, 255);">
+						<div><span class="property-name">Star Color</span>
+							<div class="c"><input type="text" style="outline: none; text-align: center; color: rgb(0, 0, 0); border: 0px; font-weight: bold; text-shadow: rgba(255, 255, 255, 0.7) 0px 1px 1px; background-color: rgb(255, 255, 255);">
+								<div class="selector" style="width: 122px; height: 102px; padding: 3px; background-color: rgb(34, 34, 34); box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 3px;">
+									<div class="field-knob" style="position: absolute; width: 12px; height: 12px; border: 2px solid rgb(0, 0, 0); box-shadow: rgba(0, 0, 0, 0.5) 0px 1px 3px; border-radius: 12px; z-index: 1; margin-left: -7px; margin-top: -7px; background-color: rgb(255, 255, 255);"></div>
+									<div class="saturation-field" style="width: 100px; height: 100px; border: 1px solid rgb(85, 85, 85); margin-right: 3px; display: inline-block; cursor: pointer; background: -webkit-linear-gradient(left, rgb(255, 255, 255) 0%, rgb(255, 0, 0) 100%);">
+										<div style="width: 100%; height: 100%; background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%);"></div>
+									</div>
+									<div class="hue-field" style="width: 15px; height: 100px; display: inline-block; border: 1px solid rgb(85, 85, 85); cursor: ns-resize; background: -webkit-linear-gradient(top, rgb(255, 0, 0) 0%, rgb(255, 0, 255) 17%, rgb(0, 0, 255) 34%, rgb(0, 255, 255) 50%, rgb(0, 255, 0) 67%, rgb(255, 255, 0) 84%, rgb(255, 0, 0) 100%);">
+										<div class="hue-knob" style="position: absolute; width: 15px; height: 2px; border-right: 4px solid rgb(255, 255, 255); z-index: 1; margin-top: 100px;"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="cr number has-slider">
+						<div><span class="property-name">Star Radius</span>
+							<div class="c">
+								<div><input type="text"></div>
+								<div class="slider">
+									<div class="slider-fg" style="width: 37.931%;"></div>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="cr number has-slider">
+						<div><span class="property-name">Star Blur</span>
+							<div class="c">
+								<div><input type="text"></div>
+								<div class="slider">
+									<div class="slider-fg" style="width: 25%;"></div>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+				<div class="close-button" style="width: 245px;">Open Controls</div>
+			</div>
+		</div>
+		
+		<!--头部开始-->
+			<div id="loginheader">
+				<a href="index" id="logo"><img src="img/lu.png" style="background-color: darkorange;width: 85px;height: 85px;position: absolute;left: 890px;border-radius:20px ;"></a>
+			</div>
+			<!--头部结束-->
+			
+			<!--主体开始-->
+			<div id="main">
+				<div class="innerclass" style="position: relative;opacity: 0.9;">
+					<div id="loginform">
+						<form action="uilogin" method="post">
+							<p class="title"><span>账号登陆</span> | <span id="saocode">扫码登陆</span></p>
+							<p class="ff"><input type="text" name="username" placeholder="邮箱/手机/小米ID" /></p>
+							<p class="ff" style="margin-top: 14px;"><input type="password" name="password" placeholder="密码"/></p>
+							<p class="btn"><input type="submit" value="登录" id="btnlogin"></p>
+							<p class="forgetpassword"><span style="color:red;"><%=msg%></span>   <a href="reg.jsp">立即注册</a> | <a href="###">忘记密码</a></p>
+						</form>
+					</div>
+				</div>
+				
+			</div>
+			
+			<!--主体结束-->
+			
+			<!--底部开始-->
+			<div id="footer">
+				<div id="service" class="innerclass">
+					<a href="###" style="background-image: url(img/icon1.png);">预约维修服务</a> | <a href="###" style="background-image: url(img/icon2.png);">7天无理由退货</a> | <a href="###" style="background-image: url(img/icon3.png);">15天免费换货</a> | <a href="###" style="background-image: url(img/icon4.png);">满150元包邮</a> |<a href="###" style="background-image: url(img/icon5.png);">520余家售后 </a> 
+				</div>
+				<div id="bottomwrapper" class="innerclass">
+					<div id="bottomleft">
+						<dl>
+							<dt>帮助中心</dt>
+							<dd>账户管理</dd>
+							<dd>购物指南</dd>
+							<dd>订单操作</dd>
+						</dl>
+						<dl>
+							<dt>帮助中心</dt>
+							<dd>账户管理</dd>
+							<dd>购物指南</dd>
+							<dd>订单操作</dd>
+						</dl>
+						<dl>
+							<dt>帮助中心</dt>
+							<dd>账户管理</dd>
+							<dd>购物指南</dd>
+							<dd>订单操作</dd>
+						</dl>
+						<dl>
+							<dt>帮助中心</dt>
+							<dd>账户管理</dd>
+							<dd>购物指南</dd>
+							<dd>订单操作</dd>
+						</dl>
+						<dl>
+							<dt>帮助中心</dt>
+							<dd>账户管理</dd>
+							<dd>购物指南</dd>
+							<dd>订单操作</dd>
+						</dl>
+						<dl>
+							<dt>帮助中心</dt>
+							<dd>账户管理</dd>
+							<dd>购物指南</dd>
+							<dd>订单操作</dd>
+						</dl>
+					</div>
+					<div id="bottomright">
+					</div>
+				</div>
+				
+				<div id="copyright" class="innerclass">
+					<p class="first">
+						<a href="###">小米商城</a> |
+						<a href="###">miui</a> |
+						<a href="###">米聊</a> |
+						<a href="###">游戏</a> |
+						<a href="###">多看阅读</a> |
+						<a href="###">小城</a> |
+						<a href="###">游戏</a> |
+						<a href="###">小米商城</a> |
+						<a href="###">游戏</a> |
+						<a href="###">小米</a> 
+					</p>
+					<p> ICP备案号 数 蜀 ICB 55234441212 京公安备案 ：sssss223222</p>
+					<p>违法和不良信息举报电话：12315 </p>
+				</div>
+				
+			</div>
+			<!--底部结束-->
+
+	</body>
+
+</html>

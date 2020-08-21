@@ -1,0 +1,124 @@
+#navppt{
+	height: 460px;
+	background-color: darkgreen;
+	position: relative;
+	
+}
+
+#leftnav{
+	width: 234px;
+	height:445px;
+	padding-top:15px;
+	background-color:#31524B;
+}
+
+#ppt{
+	width: 992px;
+	height: 460px;
+	background-color: darkmagenta;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+
+#leftnav li a{
+	color: #fff;
+	font-size: 14px;
+	text-decoration: none;
+	line-height: 42px;
+	display: block;
+	padding-left: 28px;
+}
+
+
+
+#leftnav li a:hover
+{
+	background-color: #EEEEEE;
+	opacity: 0.5;
+	color: black;
+}
+
+
+
+#ppt img{
+	height: 460px;
+}
+
+#recommpro{
+	height: 170px;
+	margin-top: 14px;
+}
+
+#recommpro li{
+	width: 316px;
+	height: 170px;
+	float: left;
+	padding-left:14px;
+}
+
+#title{
+	font-size: 24px;
+	color:#333;
+	padding-top: 42px;
+	padding-bottom: 18px;
+}
+
+#prolist{
+	height: 324px;
+}
+
+#prolist li{
+	width: 230px;
+	height:324px;
+	float: left;
+	text-align: center;
+	
+	margin-left: 15px;
+	
+	text-align: center;
+}
+
+#prolist li:hover
+{
+	box-shadow: 0px 0px 10px 3px #ccc;
+}
+
+
+#prolist li.first{
+	margin-left: 0;
+}
+
+#prolist li.last{
+	width: 246px;
+}
+
+#prolist a{
+	display: block;
+}
+
+#prolist a.hasimg
+{
+	padding-top: 50px;
+}
+
+#prolist a.hastxt
+{
+	text-decoration: none;
+	color: #212121;
+	font-size: 14px;
+	padding: 10px;
+}
+
+#prolist p{
+	font-size: 14px;
+	color: #B0B0B0;
+}
+
+
+#prolist p.price
+{
+	color: #FE6709;
+	padding-top: 15px;
+}

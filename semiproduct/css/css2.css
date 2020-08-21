@@ -1,0 +1,28 @@
+*{
+	margin: 0;
+	padding: 0;
+	
+}
+body{
+	/*background-image: url(../img/59.png);
+	background-repeat:repeat-x ;
+	background-size:520px 760px ;*/
+	background-color: papayawhip!important;
+}
+#zhuti{
+	background-color: white!important;
+}
+.xa span{
+	width: 30px;
+	height: 30px;
+    float: left;
+}
+.y{
+	background-color: yellow;
+}
+.lu{
+	background-color: green;
+}
+.red{
+	background-color: red;
+}
