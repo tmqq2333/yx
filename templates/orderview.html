@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+            *{
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	font-family:"微软雅黑";
+	font-size: 14px;
+}
+a{
+	text-decoration: none;
+	color: #333;
+}
+
+ul{
+	list-style: none;
+}
+
+h3{
+
+	line-height: 38px;
+}
+
+.tb{
+	width:calc(100% - 10px);
+	border-collapse: collapse;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+.tb td{
+	border: solid 1px #eee;
+	height:30px;
+	padding-left: 5px;
+}
+
+.tb td.lable{
+	width: 145px;
+	text-align: right;
+	padding-right: 5px;
+}
+
+
+
+.tb input{
+	width:300px;
+	height: 20px;
+}
+
+textarea{
+	width: 650px;
+	height:200px;
+	margin: 3px 0;
+}
+.path{
+	height: 30px;
+	margin-left: 5px;
+	line-height: 30px;
+	color: #333;
+}
+
+.tblis tr:hover{
+	background-color: #8A2BE2;
+	color: white;
+}
+
+.tblis tr:hover a{
+
+	color: white;
+}
+
+.tblis td{
+	text-align: center;
+}
+
+.tblis td.tdleft{
+	text-align: left;
+}
+
+.tblis td a{
+	margin-left:5px;
+}
+
+#btnsave{
+	width: 80px;
+	height: 26px;
+}
+
+        </style>
+	</head>
+	<body>
+		{% csrf_token %}
+        <p class="path">当前位置:点餐系统/订单详情</p>
+        <table border="0" cellspacing="0" cellpadding="0" class="tb">
+            <tr><td class="lable">订单号</td><td>{{ obj.orderid }}</td></tr>
+            <tr><td class="lable">下单时间</td><td>{{ obj.ctime }}</td></tr>
+            <tr><td class="lable">送货时间</td><td>{{ obj.ptime }}</td></tr>
+            <tr><td class="lable">收货人</td><td> {{ obj.sname }}</td></tr>
+            <tr><td class="lable">送货地址</td><td>{{ obj.saddress }}</td></tr>
+            <tr><td class="lable">电话</td><td>{{ obj.stel }}</td></tr>
+            <tr><td class="lable">总价</td><td>{{ obj.sumprice }}</td></tr>
+            <tr><td class="lable">备注</td><td>{{ obj.memo }}</td></tr>
+        </table>
+        <table border="0" cellspacing="0" cellpadding="0" class="tb" style="margin-top: 2px">
+            <tr><td style="width: 150px">图片</td><td>菜品名称</td><td style="width: 150px;">单价</td><td style="width: 150px">数量</td></tr>
+            {% for item in obj.items%}
+            <tr><td><img src="{{item.imgurl}}" style="width: 120px;height: 60px;"/> </td><td>{{item.proname}}</td><td>{{item.price}}</td><td>{{item.procount}}</td></tr>
+            {% endfor %}
+        </table>
+	</body>
+</html>

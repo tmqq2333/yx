@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+            *{
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	font-family:"微软雅黑";
+	font-size: 14px;
+}
+a{
+	text-decoration: none;
+	color: #333;
+}
+
+ul{
+	list-style: none;
+}
+
+h3{
+
+	line-height: 38px;
+}
+
+.tb{
+	width:calc(100% - 10px);
+	border-collapse: collapse;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+.tb td{
+	border: solid 1px #eee;
+	height:30px;
+	padding-left: 5px;
+}
+
+.tb td.lable{
+	width: 100px;
+	text-align: right;
+	padding-right: 5px;
+}
+
+
+
+.tb input{
+	width:300px;
+	height: 20px;
+}
+
+textarea{
+	width: 650px;
+	height:200px;
+	margin: 3px 0;
+}
+.path{
+	height: 30px;
+	margin-left: 5px;
+	line-height: 30px;
+	color: #333;
+}
+
+.tblis tr:hover{
+	background-color: #8A2BE2;
+	color: white;
+}
+
+.tblis tr:hover a{
+
+	color: white;
+}
+
+.tblis td{
+	text-align: center;
+}
+
+.tblis td.tdleft{
+	text-align: left;
+}
+
+.tblis td a{
+	margin-left:5px;
+}
+
+#btnsave{
+	width: 80px;
+	height: 26px;
+}
+
+        </style>
+	</head>
+	<body>
+		<form action="/foodeditpost/" method="post" enctype="multipart/form-data">{% csrf_token %}
+			<p class="path">当前位置:点餐系统/发布菜品</p>
+			<table border="0" cellspacing="0" cellpadding="0" class="tb">
+                <input type="hidden" name="proid" value="{{foodview.id  }}"/>   <!--通过设置隐藏项，获取id 和图片路径-->
+                <input type="hidden" name="oldimgurl" value="{{foodview.imgurl  }}"/>
+				<tr><td class="lable">菜品名称</td><td><input type="text" name="tbname" value="{{foodview.proname  }}"/></td></tr>
+				<tr><td class="lable">价格</td><td><input type="text" name="tbprice" value="{{foodview.proprice  }}"/></td></tr>
+				<tr><td class="lable">简介</td><td><input type="text" name="tbbrief" value="{{foodview.probrief  }}"/></td></tr>
+				<tr><td class="lable">图片</td><td><input type="file" name="tbpic"/></td></tr>
+				<tr><td class="lable">地址</td><td><textarea name="tbcontents">{{foodview.proaddress  }}</textarea></td></tr>    <!--多行文本接收方式不一样-->
+				<tr><td class="lable">&nbsp;</td><td><input type="submit" name="btnsave" value="保存" id="btnsave"/> {{ foodview.msg}}</td></tr>
+			</table>
+		</form>
+		
+	</body>
+</html>

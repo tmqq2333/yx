@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="UTF-8">
+      <title></title>
+      <link rel="stylesheet" type="text/css" href="../static/admin/css/comm.css"/>
+      <script src="js/jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script>
+  <style type="text/css">
+            *{
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	font-family:"微软雅黑";
+	font-size: 14px;
+}
+a{
+	text-decoration: none;
+	color: #333;
+}
+
+ul{
+	list-style: none;
+}
+
+h3{
+
+	line-height: 38px;
+}
+
+.tb{
+	width:calc(100% - 10px);
+	border-collapse: collapse;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+.tb td{
+	border: solid 1px #eee;
+	height:30px;
+	padding-left: 5px;
+}
+
+.tb td.lable{
+	width: 100px;
+	text-align: right;
+	padding-right: 5px;
+}
+
+
+
+.tb input{
+	width:300px;
+	height: 20px;
+}
+
+textarea{
+	width: 650px;
+	height:200px;
+	margin: 3px 0;
+}
+.path{
+	height: 30px;
+	margin-left: 5px;
+	line-height: 30px;
+	color: #333;
+}
+
+.tblis tr:hover{
+	background-color: #8A2BE2;
+	color: white;
+}
+
+.tblis tr:hover a{
+
+	color: white;
+}
+
+.tblis td{
+	text-align: center;
+}
+
+.tblis td.tdleft{
+	text-align: left;
+}
+
+.tblis td a{
+	margin-left:5px;
+}
+
+#btnsave{
+	width: 80px;
+	height: 26px;
+}
+.mg{
+    color:red;
+
+
+
+}
+        </style>
+   </head>
+   <body>
+       <form action="/messagereplypost/" method="post" >{% csrf_token %}
+         <p class="path">当前位置:点餐系统/回复留言</p>
+         <table border="0" cellspacing="0" cellpadding="0" class="tb">
+            <input type="hidden" name="proid" value="{{view.id  }}"/>
+            <tr><td class="lable">用户:</td><td>{{view.truename  }}</td></tr>
+            <tr><td class="lable">留言:</td><td>{{view.text }}</td></tr>
+            <tr><td class="lable">回复:</td><td><textarea name="tbcontents"></textarea></td></tr>
+            <tr><td class="lable">&nbsp;</td><td><input type="submit" name="btnsave" value="保存" id="btnsave"/></td></tr>
+         </table>
+<!--enctype="multipart/form-data"有附件上传-->
+          <div id="mg">{{mg}}</div>
+      </form>
+
+   </body>
+</html>

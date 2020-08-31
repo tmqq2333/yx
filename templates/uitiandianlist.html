@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../static/myadmin/css/comm.css"/>
+        <style type="text/css">
+            *{
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	font-family:"微软雅黑";
+	font-size: 14px;
+}
+a{
+	text-decoration: none;
+	color: #333;
+}
+
+ul{
+	list-style: none;
+}
+
+h3{
+
+	line-height: 38px;
+}
+
+.tb{
+	width:calc(100% - 10px);
+	border-collapse: collapse;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+.tb td{
+	border: solid 1px #eee;
+	height:30px;
+	padding-left: 5px;
+}
+
+.tb td.lable{
+	width: 100px;
+	text-align: right;
+	padding-right: 5px;
+}
+
+
+
+.tb input{
+	width:300px;
+	height: 20px;
+}
+
+textarea{
+	width: 650px;
+	height:200px;
+	margin: 3px 0;
+}
+.path{
+	height: 30px;
+	margin-left: 5px;
+	line-height: 30px;
+	color: #333;
+}
+
+.tblis tr:hover{
+	background-color: #8A2BE2;
+	color: white;
+}
+
+.tblis tr:hover a{
+
+	color: white;
+}
+
+.tblis td{
+	text-align: center;
+}
+
+.tblis td.tdleft{
+	text-align: left;
+}
+
+.tblis td a{
+	margin-left:5px;
+}
+
+#btnsave{
+	width: 80px;
+	height: 26px;
+}
+
+        </style>
+	</head>
+	<body>
+			<p class="path">当前位置：点餐系统/菜品列表</p>
+			<table border="0" cellspacing="0" cellpadding="0" class="tb tblis">
+				<tr><td style="width: 150px;">甜点图片</td><td style="width: 150px;">甜点名称</td><td style="width: 150px;">价格</td><td>简介</td><td style="width: 150px;">操作</td></tr>
+				{% for item in uitiandianlist %}    <!--循环显示foodlist里面的值，foodlist是myadmin.py里面的foodlist函数传过来的-->
+                <tr><td style="text-align: center;padding:5px 0;"> <img src="/static/uploadimg/{{ item.imgurl }}" style="width: 120px;height: 60px;border: solid 1px #eee;"/></td><td>{{ item.proname }}</td><td>￥{{ item.proprice }}.00</td><td>{{ item.probrief }}</td><td><a href="/uitiandianedit/?id={{ item.id }}">修改</a><a href="/uitiandiandelete/?id={{ item.id }}">删除</a></td></tr>
+			                                                                                                                                                                                          <!--通过动态获取id，知道要修改数据的id-->
+			    {% endfor %}
+            </table>
+
+	</body>
+</html>
