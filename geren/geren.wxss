@@ -1,0 +1,140 @@
+/* pages/reg/reg.wxss */
+.container{
+  width: 100%;
+  height: 100%;
+}
+.header{
+  height: 100%;
+  background-color: #ff6600;
+  margin: 0 auto;
+  color: #fff;
+  text-align: center;
+  line-height: 230rpx;
+}
+.itembox{
+  width: 100%;
+  margin-top: 40%;
+}
+.first{
+  /* border-top: solid 1px #eee; */
+  margin-top: 3rpx;
+}
+.username{
+  font-size: 55rpx;
+}
+.subtitle{
+  color: #ccc;
+}
+.header image{
+  width: 200rpx;
+  position: absolute;
+  right: 10rpx;
+  top: 10rpx;
+  border-radius: 100rpx;
+}
+.itembox .item{
+  border-bottom: solid 1px #eee;
+  height:90rpx;
+  line-height:90rpx;
+  padding: 0 20rpx;
+}
+.itembox image{
+  width: 200rpx;
+}
+
+.fitem{
+  height:90rpx;
+  /* border-bottom: solid 1px #eee; */
+  position: relative;
+  line-height: 90rpx;
+  padding: 0 20rpx;
+}
+
+.fitem text{
+  width: 200rpx;
+  font-weight: bold;
+  text-align: right;
+  display: inline-block;
+}
+
+.fitem-big{
+  height:220rpx;
+  border-bottom: solid 1px #eee;
+  position: relative;
+  line-height: 90rpx;
+  padding: 0 20rpx;
+}
+
+.fitem input{
+  width:calc(100% - 220rpx);
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 90rpx;
+  line-height: 90rpx;
+}
+
+.fitem-big textarea{
+  width:calc(100% - 220rpx);
+  position: absolute;
+  right: 0;
+  top: 10rpx;
+  line-height:60rpx;
+  max-height: 200rpx;
+}
+
+.btnreg{
+  width:calc(100% - 200rpx);
+  height:80rpx;
+  line-height:80rpx;
+  text-align: center;  
+  border-radius: 10rpx;
+  position: absolute;
+  left: 100rpx;
+  bottom:-32%;
+  background-color: rgb(76, 83, 107);
+  color: #fff;
+  border: solid 1px #babaca;
+}
+.hoverclass{
+  background-color:#eee;
+  border: solid 1px #ccc;
+  color: #333;
+}
+.formbox{
+  position: relative;
+}
+.fitemy{
+  width:calc(100% - 30rpx);
+  height: 274rpx;
+  background-color: #eee;
+  margin: auto;
+}
+.fitemy button{
+  width: 60rpx;
+  height: 76rpx;
+  text-align: center;
+  line-height: 44rpx;
+  
+}
+.fitemy image{
+  width: 180rpx;
+  height: 180rpx;
+  background-color:#fff;
+  margin-left:calc(50% - 80rpx) ;
+  margin-top: 9rpx;
+  border: solid 1px #ccc;
+}
+.fitemy text{
+  width:calc(100% - 30rpx);
+  height:80rpx;
+  margin-top: 10rpx;
+}
+
+.bcimg image{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left:3rpx ;
+  top: 2rpx;
+}

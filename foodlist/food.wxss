@@ -1,0 +1,110 @@
+/* pages/foodlist/food.wxss */
+/* pages/foodlist/foodlist.wxss */
+page{
+  width: 100%;
+  height: 100%;
+}
+.main {
+  background-color:#C0C0C0;
+}
+.container{
+  width: 100%;
+  height: 100%;
+  background-color: rgb(255, 255, 255);
+  border-top-left-radius: 35rpx;
+  border-top-right-radius: 35rpx;
+}
+.searchbox{
+  width:calc(100% - 40rpx);
+  height:65rpx;
+  background-color:#F1F1F1;
+  margin:0 auto;
+  margin-top: 40rpx;
+  border-radius: 45rpx;
+  position: relative;/*给图标的父容器加一个相对定位的属性，把他作为定位的参考对象。*/
+}
+
+.searchbox input{
+  height: 65rpx;
+  margin: 0 75rpx;
+  font-size: 25rpx;
+}
+
+.searchbox image{
+  width: 45rpx;
+  position: absolute;
+  left:20rpx;
+  top:14rpx;
+}
+
+.listbox{
+  width: 100%;
+  height:calc(100% - 90rpx);
+  overflow-y: scroll;
+  margin-top: 25rpx;
+}
+
+.fooditem{
+  height:270rpx;
+  border-bottom: solid 1rpx #F1F1F1;
+  position: relative;
+  
+}
+
+.fooditem image{
+  width: 220rpx;
+  margin: 20rpx;
+}
+.rightbox{
+  width:calc(100% - 280rpx);
+  height: 270rpx;
+  position: absolute;
+  right: 0;
+  top: 0;
+  line-height: 57xrpx;
+ 
+}
+.line1{
+  font-size: 40rpx;
+  font-weight: bold;
+  padding-top: 10rpx;
+}
+.line2{
+  color: #898989;
+}
+
+.line3{
+  color: #F76558;
+  line-height:70rpx;
+}
+
+.line4 text{
+  border:solid 1px #E0C99F;
+  color: #E0C99F;
+  padding:2rpx 10rpx;
+  margin-right: 10rpx;
+}
+
+.itemhover{
+  background-color: #eee;
+}
+
+.tex{
+  line-height: 23rpx;
+  font-size: 28rpx;
+  color:grey;
+}
+
+.tex1{
+  font-size: 30rpx;
+  line-height: 65rpx;
+}
+
+.tex2{
+  font-size: 30rpx;
+  line-height: 75rpx;
+}
+
+.tex3 text{
+  font-size: 29rpx;
+}

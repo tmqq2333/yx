@@ -1,0 +1,30 @@
+<!--pages/geren/geren.wxml-->
+
+
+
+
+
+<!--pages/reg/reg.wxml-->
+<view class="container">
+ <view class="bcimg">
+          <image src="/pages/img/reg01.jpg" />
+    </view>
+    <view class="itembox">
+     
+       <view class="formbox">
+          <!-- <view class="fitemy"> <image src="{{imgUrl}}" />
+          <button type="primary" bindtap="uploadfn" style="background-color: #ff6600;width:36%;margin-left:33% ;">上传</button>
+          </view> -->
+          <!-- <view class="btnreg" hover-class="hoverclass" bindtap="fnreg">个人中心</view>     -->
+          <view class="fitem first"><text>账号：</text><input type="text" bindinput="fninputeditusername"  name="loginname"/>{{currentuserusername}}</view>
+          <view class="fitem"><text>密码：</text><input type="password" bindinput="fninputeditpassword"  name="password"/>{{mima}}</view>
+          <view class="fitem"><text>姓名：</text><input type="text" bindinput="fninputedittruename"  name="truename"/>{{currentusertruename}}</view>
+          <view class="fitem"><text>电话：</text><input type="text" bindinput="fninputedittel"  name="tel"/>{{currentusertruetel}}</view>
+          <view class="fitem"><text>地址：</text><input type="text" bindinput="fninputeditaddress"  name="address"/>{{currentusertrueaddress}}</view> 
+         
+         
+      </view>
+    </view>
+    
+</view>
+

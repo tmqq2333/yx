@@ -1,0 +1,102 @@
+<!--index.wxml-->
+<view class="main">
+	<view class="container">
+		<view class="searchbox">
+			<!-- bindinput是当输入值的时候调用后面的函数 bindconfirm是当输入完成按enter后调用-->
+			<input type="text" placeholder="搜美食，菜谱" bindinput="fnedit" bindconfirm="fnsearch" />
+		</view>
+
+		<!-- 轮播模块开始 -->
+		<view class="ppt">
+			<view class="page-section page-section-spacing swiper">
+				<!--autoplay自动播放   interval每张图片间隔时间  duration从左侧滑到右侧用的时间   单位都是ms  -->
+				<swiper indicator-dots="true" autoplay="true" interval="3000" duration="500">
+					<block wx:for="{{pptlist}}" wx:key="key" wx:for-index="index" wx:for-item="item">
+						<swiper-item>
+							<view class="swiper-item">
+								<image src="{{urlhead}}/static/uploadimg/{{item.imgurl}}" mode="widthFix" />
+							</view>
+							<!--mode="widthFix" 是设置图片大小的，表示宽设置固定后高会自适应的被设置 -->
+						</swiper-item>
+					</block>
+				</swiper>
+			</view>
+		</view>
+		<!-- 轮播模块结束 -->
+
+		<!-- 导航开始 -->
+		<!-- hover-class表示当鼠标点上去的效果，可利用hovertag名字在css里面写样式，hovertag名字可任取 -->
+		<view class="iconbox">
+			<view class="iconitem" hover-class="hovertag" bindtap="fntuijian">
+				<image src="/pages/img/n1.jpg" />
+			</view>
+			<view class="iconitem" hover-class="hovertag" bindtap="fnmingchu">
+				<image src="/pages/img/n2.jpg" />
+			</view>
+			<view class="iconitem" hover-class="hovertag" bindtap="fntiandain">
+				<image src="/pages/img/n3.jpg" />
+			</view>
+			<view class="iconitem" hover-class="hovertag" bindtap="fncanyan"> 
+				<image src="/pages/img/n4.jpg" />
+			</view>
+
+
+		</view>
+		<!-- 导航结束 -->
+
+		<!-- <view class="ad1">
+		<image src="/pages/img/p1.jpg" mode="widthFix" />
+	</view> -->
+
+		<view class="main2">
+
+			<!-- 优选餐宴开始 -->
+			<view class="foodbox">
+				<image src="/pages/img/t2.jpg" class="foodtitle" mode="widthFix" />
+				<view class="foodlistbox1" bindtap="fngotofoodview2">
+					<image src="/pages/img/699.jpg"></image>
+				</view>
+				<view class="foodlistbox">
+					<!-- 用block进行循环 foodlist是返回回来的数据在.js里面  index是索引  item是每一项-->
+					<block wx:for="{{foodlist}}" wx:key="key" wx:for-index="index" wx:for-item="item">
+						<!--当在这个菜品点击的时候，会触发这个函数 bindtap="fngotofoodview" -->
+						<view class="fooditem" hover-class="fooditemhover" bindtap="fngotofoodview" data-id='{{item.id}}' data-name='我名'>
+							<image src="{{urlhead}}/static/uploadimg/{{item.imgurl}}" />
+							<text class="foodname tex" > {{item.proname}}</text>
+							<text class="foodname tex" > {{item.probrief}}</text>
+							<text class="foodprice tex">￥{{item.proprice}}.00/份</text>
+						</view>
+					</block>
+				</view>
+			</view>
+			<!-- 优选餐宴结束 -->
+			<!-- 本店特色开始 -->
+			<view class="foodbox">
+				<image src="/pages/img/t1.jpg" class="foodtitle" mode="widthFix" />
+				<view class="foodlistboxa" bindtap="fngotofoodview3">
+					<image src="/pages/img/123.jpg"></image>
+				</view>
+				<view class="foodlistboxa" bindtap="fngotofoodview4">
+					<image src="/pages/img/124.jpg"></image>
+				</view>
+				<view class="foodlistboxa" bindtap="fngotofoodview5">
+					<image src="/pages/img/125.jpg"></image>
+				</view>
+			</view>
+
+			<!-- 本店特色结束 -->
+
+
+			<view class="companyinfo1">
+				        
+				<image src="/pages/img/bz.jpg" mode="widthFix" />
+			</view>
+
+			    <view class="companyinfo">
+				        
+				<image src="/pages/img/ad3.jpg" mode="widthFix" />
+				    </view>
+
+		</view>
+	</view>
+</view>

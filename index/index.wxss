@@ -1,0 +1,255 @@
+/**index.wxss**/
+.main {
+  background-color:#C0C0C0;
+}
+
+
+
+.tex{
+  font-size: 24rpx;
+  color:grey;
+}
+.container {
+  background-color: rgb(255, 255, 255);
+  border-top-left-radius: 35rpx;
+  border-top-right-radius: 35rpx;
+}
+
+.ppt {
+  width: 100%;
+  height: 350rpx;
+  position: relative;
+  margin-top: 77rpx;
+}
+
+.ppt image {
+  width: 100%;
+}
+
+
+.iconbox {
+  width: 100%;
+  height: 150rpx;
+  display: flex;
+  /*让外面的大盒子布局模式为弹性布局*/
+  padding-top: 33rpx;
+  padding-left: 23rpx;
+}
+
+.iconitem {
+  flex: 1;
+  height: 140rpx;
+  margin: 10rpx;
+}
+
+.iconitem image {
+  width: 85%;
+  height: 100%;
+  left: 18%;
+}
+
+.iconitem text {
+  left: 25rpx;
+}
+
+.hovertag {
+  opacity: 0.6;
+  /*把不透明度设置为0.6*/
+}
+
+.ad1 {
+  width: 100%;
+  margin-top: 130rpx;
+}
+
+.ad1 image {
+  width: 100%;
+}
+
+/* 优选名厨开始 */
+
+.cookerbox {
+  width: 100%;
+  margin-top: 50rpx;
+  height:850rpx;
+}
+
+.cookeheader {
+  width: 100%;
+  display: block;
+}
+
+.cookerlistbox {
+  padding-top:20rpx;
+  width: 100%;
+  height:750rpx;
+}
+
+.cookeritem {
+  width:calc(50% - 20rpx);
+  height:360rpx;
+  float: left;
+  margin:10rpx;
+  border-radius: 8rpx;
+  overflow: hidden;
+  box-shadow: 0 0 20rpx 2rpx rgb(0, 0, 0,0.3);
+}
+
+.fooditemhover{
+  opacity: 0.6;/*不透明度调整为0.6*/
+}
+
+
+
+.cookeritem image {
+  width: 100%;
+  height:220rpx;
+}
+
+.cookeritem text {
+  display: block;
+  /*把行内元素转为块级元素 就可以对它设置宽高了*/
+  width: 100%;
+  
+    /* 让文字在容器内居中 */
+}
+
+/* 优选名厨结束 */
+
+/* 优选餐宴开始 */
+
+.foodbox {
+  width: 100%;
+  margin-top: 98rpx;
+  height: 850rpx;
+  position: relative;
+}
+
+.foodtitle {
+  width: 100%;
+  display: block;
+  margin-bottom: 33rpx;
+}
+.foodlistbox1{
+  width: 48%;
+  height: 683rpx;
+  position: absolute;
+  left: 0;
+  top: 93rpx;
+  background-color: royalblue ;
+  box-shadow: 0 0 20rpx 2rpx rgb(0, 0, 0,0.3);
+}
+
+.foodlistbox1 image{
+  width: 100%;
+  height: 683rpx;
+}
+
+.foodlistbox {
+  
+  width: 50%;
+  height: 750rpx;
+  position: absolute;
+  right: 0;
+  top: 80rpx;
+  /* background-color: red ; */
+}
+.main2{
+  width: 95%;
+}
+.fooditem {
+  width: calc(100% - 20rpx);
+  height: 330rpx;
+  float: left;
+  margin: 10rpx;
+  border-radius: 8rpx;
+  overflow: hidden;
+  box-shadow: 0 0 20rpx 2rpx rgb(0, 0, 0, 0.3);
+  margin-top: 15rpx;
+  /* background-color: rgba(212, 204, 204, 0.3); */
+}
+
+.fooditemhover {
+  opacity: 0.6;
+  /*不透明度调整为0.6*/
+}
+
+.fooditem image {
+  width: 100%;
+  height: 170rpx;
+}
+
+.foodname {
+  font-weight: bold;
+  padding-left: 10rpx;
+  padding-top: 10rpx;
+  display: block;
+}
+
+.foodprice {
+  display: block;
+  color: rgb(221, 139, 170);
+  padding-left: 10rpx;
+  padding-top: 15rpx;
+  font-size: 32rpx;
+}
+
+/* 优选餐宴结束 */
+
+.companyinfo {
+  
+  width: 100%;
+  margin-bottom: -49rpx;
+}
+
+
+.companyinfo image {
+  width: 100%;
+  margin-bottom: -49rpx;
+}
+
+.companyinfo1 {
+  margin-top: 510rpx;
+  width: 100%;
+  margin-bottom: 21rpx;
+}
+
+
+.companyinfo1 image {
+  width: 100%;
+  margin-bottom: -49rpx;
+}
+
+
+.searchbox {
+
+  width: calc(100% - 40rpx);
+  height: 60rpx;
+  border: solid 1px #eee;
+  position: relative;
+  top: 35rpx;
+  border-radius: 45rpx;
+  background-color: #fff;
+  z-index: 100;
+}
+
+.searchbox input {
+  height: 60rpx;
+  padding-left: 20rpx;
+  text-align: center;
+  font-size: 27rpx;
+}
+
+.foodlistboxa{
+  width: 100%;
+  height: 400rpx;
+  margin-top: 11rpx;
+  /* background-color:red ; */
+  
+}
+
+.foodlistboxa image{
+  width: 98%;
+  height: 379rpx;
+ 
+}

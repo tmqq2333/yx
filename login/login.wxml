@@ -1,0 +1,19 @@
+<!--pages/login/login.wxml-->
+<view class="container">
+ <view class="bcimg">
+          <image src="/pages/img/dl.jpg" />
+    </view>
+    <view class="itembox">
+      <view class="header"  style=" text-align: center;">
+         食客云来香满楼
+         欢迎食客
+      </view>
+       <view class="formbox">
+          <view class="fitem first"><text>账号：</text><input type="text" bindinput="fninputeditusername" placeholder="必填"/></view>
+          <view class="fitem"><text>密码：</text><input type="password" bindinput="fninputeditpassword" placeholder="必填"/></view>
+          <view class="btnreg1" hover-class="hoverclass" bindtap="fnlogin">登录</view>   
+          <view class="btnreg" hover-class="hoverclass" bindtap="fngotoreg">注册</view>   
+          <view id="msg" hover-class="hoverclass" bindtap="fngotoreg" >{{msg}}</view>  
+      </view>
+    </view>
+</view>

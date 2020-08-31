@@ -1,0 +1,32 @@
+<!--pages/foodview/foodview.wxml-->
+<!--pages/foodview/foodview.wxml-->
+<view class="main">
+	<view class="foodheaderbox">
+		<image src="{{imgurl}}" mode="scaleToFill" />
+		<view class="rightbox">
+			<view class="line1">{{proname}}</view>
+			<view class="line2">{{brief}}</view>
+			<view class="line3">￥{{foodprice}}/份</view>
+			<view class="line4">
+				<view class="btnbox">
+					<view class="btnjian" bindtap="fnjian" hover-class="btnhover">-</view>
+					<view class="numberbox">{{buynum}}</view>
+					<view class="btnjia" bindtap="fnjia" hover-class="btnhover">+</view>
+				</view>
+			</view>
+		</view>
+	</view>
+	<view class="box">
+	</view>
+	
+	<view class="foodformbox">
+		<view class="fline">菜品详情</view>
+		<view class="descriptions">
+		{{descriptions}}
+	</view>
+	</view>
+	<view class="foodfooterbox">
+		价格汇总：￥{{sumprice}}.00 <view class="btnsaveorder" bindtap="fnaddtocar">加入购物车</view>
+	</view>
+
+</view>
