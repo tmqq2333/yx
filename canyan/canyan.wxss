@@ -1,0 +1,23 @@
+/* pages/canyan/canyan.wxss */
+.a1{
+  width: 100%;
+}
+.a1 image{
+  width: 100%;
+}
+
+.a2{
+  width: 100%;
+  margin-top: 10rpx;
+}
+.a2 image{
+  width: 100%;
+}
+
+.a3{
+  width: 100%;
+  margin-top: 10rpx;
+}
+.a3 image{
+  width: 100%;
+}

@@ -1,0 +1,12 @@
+<!--pages/canyan/canyan.wxml-->
+<view class="a1">
+<image src="/pages/img/l1.jpg" />
+</view>
+
+<view class="a2">
+<image src="/pages/img/l2.jpg" />
+</view>
+
+<view class="a3">
+<image src="/pages/img/l3.jpg" />
+</view>
