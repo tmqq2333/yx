@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>Document</title>
+    <script src="../VueStudent/js/vue.js"></script>
+</head>
+<body>
+    <div id="a">
+       
+        <input type="text" v-model="msg" >
+        {{msg}}
+        <hr><br>
+        <input type="text" v-model="person.name" ><br>
+        <input type="text" v-model="person.age" ><button type="button" @click="person.age++">+</button>
+        <br>
+        姓名：{{person.name}};
+        年龄：{{person.age}}
+    </div>
+    <script>
+    var app= new Vue({            
+     el:"#a",            
+     data:{           
+         msg:'',
+        person:{name:"谷歌",age:"16"}
+     },
+    watch: {
+        msg(newValue,oldValue){
+            console.log("新值"+newValue+"，旧值"+oldValue);
+        },
+        person:{
+            // 开启深度监控，监控对象属性变化
+            deep:true,
+            // handler是专有语法
+            handler(k){
+                console.log("name:"+k.name+";age:"+k.age);
+            }
+
+        }
+    },
+    })
+    // app.msg = 'new message'
+   
+</script>
+</body>
+</html>

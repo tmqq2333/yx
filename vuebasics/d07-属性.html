@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <script src="js/vue.js"></script>
+  <style>
+ .red{
+   background-color: red;
+ }
+.blue{
+  background-color: blue;
+}
+
+  </style>
+</head>
+<body>
+  <div id="a">
+   <button @click="color='red'">红</button>
+   <button @click="color='blue'">蓝</button>
+<div :class="color" style="width: 80px;height: 80px;">
+    颜色
+</div>
+<hr>
+<br>
+<button @click="bloor=!bloor">变色</button>
+
+<div :class="{red:bloor,blue:!bloor}" style="width: 80px;height: 80px;">
+    颜色
+</div>
+
+  </div>
+  <script>
+   new Vue({            
+   el:"#a",            
+   data:{           
+      color:"red",
+      bloor:true
+   },
+   
+ })
+
+</script>
+</body>
+</html>

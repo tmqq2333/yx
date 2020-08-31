@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <!-- <script src="../VueStudent/js/vue.js"></script> -->
+
+  <!-- <% if(process.env.NODE_ENV !== 'production') { %>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"
+      integrity="sha256-CMMTrj5gGwOAXBeFi7kNokqowkzbeL8ydAJy39ewjkQ=" crossorigin="anonymous"></script>
+  <% } %> -->
+  <style>
+  #a button{
+     border:solid 1px black;
+     background-color: #eeeeee;
+     
+     user-select:none;
+   }
+
+
+  </style>
+</head>
+<body>
+  <div id="a">
+   
+  <input type="text" v-model="num" >
+  <button    v-on:click="num++">按钮1加</button>
+  <button     @click="pc">按钮2减</button>
+  <!-- v-bind:title="按钮" -->
+   有{{num}}个笨蛋
+  <!-- v-model双向绑定，v-on事件处理,绑定点击事件,简写@ -->
+  {{cs()}} <!-- 要加括号-->
+
+  <br>
+  <input type="checkbox" value="java" v-model="language">java<br>
+  <input type="checkbox" value="python" v-model="language">python<br>
+  <input type="checkbox" value="php" v-model="language">php<br>
+  <h3>世界上最好的语言是{{language.join(",")}}</h3>
+  <!--join(",")分隔符  -->
+
+
+  <br>
+  事件冒泡：
+  <div style="background-color: khaki;width: 80px;height: 80px;" @click="print('div被点击了')">父组件
+    <br><button @click.stop="print('button被点击了')">子组件</button>  </div>
+    <!-- 点子组件，父组件也会被点击，这就是冒泡。消除冒泡.stop -->
+    <br>
+  阻止默认事件：
+  <br><a href="www.baidu.com" @click.prevent="print('点击了百度')">百度</a>
+  </div>
+  <script>
+   var app=new Vue({            
+   el:"#a",            
+   data:{           
+       gg:"哈哈哈哈",   
+       url:"www.baidu.com",
+       num:'',
+      language:[]//多选是一个数组 
+      // 多个checkbox对应一个model时， model的类型是一 个数组， 单个checkbox值是boolean类型
+      // radio对应的值是input的value值
+      // input和textarea默认对应的model是字符串
+      //  select单选对应字符串，多选对应也是数组
+
+   },
+  
+   methods:{
+    cs:function(){
+      return "你好"+this.url;
+    },
+    pc:function(){
+      this.num--;
+      // 注意this！！！不然不知道是哪个
+      
+    },
+    print(str){
+      console.log(str)
+    }
+  }
+ })
+ app.num = 'new message'
+//  this.$set(this.num, "", 30)
+</script>
+</body>
+</html>

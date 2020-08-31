@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第一个Vue文件</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <!-- 1.导入vue的包-->
+</head>
+<style>
+        [v-clock]{
+             display: none;/* 解决占位符一闪而过*/
+
+      }
+
+</style>
+<body>
+    <div id="a">
+         {{gg}} <!-- {{取数据}}，数据页面分割 占位符替换 -->
+         <div>{{g}}呵呵呵呵</div><!--占位符，插值表达式，网速慢会有一闪而过现象，v-test v-html没有 -->
+         <div v-text="yu">哈哈哈哈</div><!-- 覆盖内容 -->
+         <div v-html="yu2">哈</div>
+    </div>
+
+    <script>
+        // 2.我们导入了vue的包之后，在浏览器的内存中，我们就多了一个Vue的构造函数。
+      var app= new Vue({               //Vue v大写 new Vue相当于var vue = new Vue
+       el:"#a",             // 表示我们new的这个vue实例，控制页面上的那个区域
+       data:{            //data是MWn中的m，专门存放每个页面的数据。
+           gg:"holle vue",//""''都行,注意，    
+           g:"o(*^＠^*)o",
+           yu:"关于莉莉",
+           yu2:" <h1>这是v-html</h1>"
+
+       }
+
+     })
+    //  console app.gg=""可以改变值
+
+    </script>
+</body>
+</html>

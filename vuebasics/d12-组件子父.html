@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>组件,子组件向父组件通信</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+    <!-- 子组件向父组件通信，子组件被触发方法，影响父组件方法（通过<counter @plus="numplus"），进而通信父组件 -->
+ <div id="a">
+     <h2>num={{num}}</h2>
+    <counter @plus="numplus" @reduce="numreduce()" :snum="num"></counter>
+    <!-- ()可加可不加 -->
+ </div>
+ <script>
+   
+     const counter={
+        //  template里面不能有多个标签，用<div>阔起来，
+         template :`
+         <div>
+            <button    @click="plusnum">加</button>
+            <button   @click="reducenum">减</button>
+
+
+         </div>
+         
+         
+         `,
+       
+         props:["snum"],
+         methods: {
+             plusnum(){
+               return this.$emit("plus","123456,传递数据");
+            //    this.$emit触发实例中的方法
+             },
+             reducenum(){
+                return this.$emit("reduce");
+                }
+         },
+         
+     };
+
+    
+
+    Vue.component("counter",counter);
+
+
+ var app= new Vue({            
+  el:"#a",            
+  data:{           
+    
+    num:0
+  },
+  methods: {
+      numplus(k){
+           this.num=k;
+         
+      },
+      numreduce(){
+          this.num--;
+      }
+  },
+ })
+ 
+</script>
+</body>
+</html>

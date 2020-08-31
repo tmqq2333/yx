@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <style>
+   button{
+     border:solid 1px hotpink;
+     width: 20px;
+     height: 20px;
+     user-select:none;
+   }
+
+
+  </style>
+</head>
+<body>
+  <div id="a">
+   <!-- v-for优先级高与v-if -->
+  <button @click="show=!show">点一下</button>
+  <h2 v-if="show">
+      我是大魔王
+  </h2>
+  <div v-for="(bbk,index,key) in bbk" v-if="bbk.b=='1'" style="background-color: cadetblue;">
+    <!-- key用不了 -->
+    {{bbk.add}}--{{index}}
+  </div>
+  <div  v-else  style="background-color:coral;">
+<!-- v-else不可循环，循环优先级高，会错。且跟在if后面。v-else-if一样 -->
+<!-- v-if{在条件不满足的时候元素不会存在; vphow条件不满足的时候只是对元素隐藏
+ -->
+    {{index}}--{{bbk.add}}
+  </div>
+
+
+  </div>
+  <script>
+   new Vue({            
+   el:"#a",            
+   data:{           
+     show:true,
+     bbk:[
+       {add:"我是小白兔",b:"1"},
+       {add:"我是大魔王",b:"2"},
+       {add:"我才不是小白兔",b:"1"},
+       {add:"我是唯一的小白兔",b:"3"}
+     ]
+   },
+ 
+ })
+
+</script>
+</body>
+</html>

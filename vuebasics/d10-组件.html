@@ -1,0 +1,47 @@
+   <!DOCTYPE html>
+   <html lang="en">
+   <head>
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title>组件</title>
+       <script src="../VueStudent/js/vue.js"></script>
+   </head>
+   <body>
+    <div id="a">
+        <!-- 使用组件 -->
+   <counter></counter>
+       
+    </div>
+    <script>
+        // 定义组件，非javascript的new,也是vue实例，组件不会与页面元素绑定
+        const counter={
+            template :"<button  @click='num++'>被点击了{{num}}次</button>",
+            data(){
+                return {num:0}
+            }
+            // data需要一个函数，返回值
+        };
+    // 全局注册组件，在所有vue实例中可以使用组件
+    // 参数1：组件名，参数2：具体组件
+    // Vue.component("counter",counter);
+   
+   
+    var app= new Vue({            
+     el:"#a",            
+     data:{           
+       
+     },
+    components:{
+        counter:counter
+    }
+    
+    })
+    // components局部注册，s注意。只可以这个页面
+   
+// ·全局注册︰在任何vue实例中都可以引用，如∶一般网站的头部导航菜单
+// ·局部注册:可以在有需要的页面引入组件，如︰商城网站首页页面中各种活动模块
+// 组件使用场景∶在项目需要重用某个模块（头部、尾部、新闻。。。)的时候，可以将模块抽取成组件，其它页面中注册组件并引用。
+
+</script>
+   </body>
+   </html>

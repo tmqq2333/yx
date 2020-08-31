@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>组件,父组件向子组件通信</title>
+    <script src="../VueStudent/js/vue.js"></script>
+</head>
+<body>
+ <div id="a">
+     <!-- 使用组件，及时更新组件 -->
+<counter :title="msg"></counter>  <!--子组件title属性接受父组件msg属性-->
+<counter :title="msg"></counter>
+<my-list :items="lesson"></my-list>
+    <!-- title继承msg。：是v-bind -->
+    <!-- 大写，用-连接 -->
+ </div>
+ <script>
+     // 定义组件，非javascript的new,也是vue实例，组件不会与页面元素绑定
+     const counter={
+         template :"<h2>{{title}}</h2>",
+        //  定义接受父组件的属性
+         props:["title"]
+         
+     };
+
+    // 如果是数组
+     const myList={
+        //  需要反单引号
+         template :`
+         <ul>
+            <li v-for="item in items " :key="item.id">{{item.id}}--{{item.name}}</li>
+        </ul>
+         
+         
+         `,
+        //  定义接受父组件的属性
+         props:{
+             items:{
+                //  数据类型，数组是array，对象是object
+                 type:Array,
+                //  默认值
+                 default:[]
+                //  如果是对象，则是方法。default(){ return{"xxx":"默认值"} ；     }
+             }
+         }
+         // 
+     };
+
+  Vue.component("counter",counter);
+
+
+ var app= new Vue({            
+  el:"#a",            
+  data:{           
+    msg:"父组件的msg属性数据",
+    lesson:[
+      {id:"12",name:"java裹脚布"} ,
+      {id:"13",name:"python小甜心"},
+      {id:"14",name:"jphp"}
+
+    ]
+  },
+  components:{
+      myList
+      //一样就声明一次就好。不用mylist：mylist
+    //   如果是大写就-连接
+  }
+ 
+ })
+ 
+</script>
+</body>
+</html>

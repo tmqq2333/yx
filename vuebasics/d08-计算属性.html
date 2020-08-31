@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <style>
+   button{
+     border:solid 1px hotpink;
+     width: 20px;
+     height: 20px;
+     user-select:none;
+   }
+
+
+  </style>
+</head>
+<body>
+  
+  <div id="a">
+  <h2>
+      你的生日是(第一种):
+      {{new Date(birthday).getFullYear()}}-{{new Date(birthday).getMonth()+1}}-{{new Date(birthday).getDay()}}
+      <!-- new Date,不是Data -->
+  </h2>
+  <hr>
+  <h2>
+    你的生日是(第二种):
+    {{birth}}
+    <!-- new Date,不是Data -->
+</h2>
+</div>
+
+
+  </div>
+  <script>
+   new Vue({            
+   el:"#a",            
+   data:{           
+      birthday:1992365
+      // 计算属性不用“”，数字不是字符。
+
+   },
+   computed: {
+     birth(){
+       const date=new Date(this.birthday);
+       return date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDay();
+     }
+   },
+  //  computed计算属性，应用插值和指令表达式复杂，属性处理计算后返回
+ })
+
+</script>
+</body>
+</html>

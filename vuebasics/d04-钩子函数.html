@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <style>
+   button{
+     border:solid 1px hotpink;
+     width: 20px;
+     height: 20px;
+     user-select:none;
+   }
+
+
+  </style>
+</head>
+<body>
+  <div id="a">
+   {{msg}}
+  </div>
+  <script>
+   new Vue({            
+   el:"#a",            
+   data:{           
+       msg:""//异步加载
+
+   },
+   created(){
+    //    this表示vue实例，监听，
+    // 实例化，模块渲染中加入其他操作，用钩子函数
+    // 钩子函数会在vue实例的各个生命周期阶段自动调用;具体有: beforeCreate之前 ,created过程,beforeMount,mounted挂载,updated更新,,beforeUpdate , destroyed销毁, beforeDestroy|
+//    用于初始化，不可用箭头函数编写方式
+
+    this.msg="hello vue.created";
+    console.log(this)
+   }
+ })
+
+</script>
+</body>
+</html>

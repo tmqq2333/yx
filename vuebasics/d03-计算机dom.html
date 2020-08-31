@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="a">
+
+    <input type="text" v-model="num1">
+    <select v-model="sum">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+    </select>
+    <input type="text" v-model="num2">
+    <button @click="click">=</button>
+    <input type="text" v-model="num">
+   
+
+
+
+
+    </div>
+
+
+    <script>
+        new Vue({            
+        el:"#a",            
+        data:{  
+            num1:"0",   
+            num2:"0",   
+            sum:"+",      
+            num:"0"   
+           
+     
+        },
+       methods:{
+           click:function(){
+               kk=this.sum;
+             
+         switch (kk){
+
+           case "+" : this.num=parseInt(this.num1) + parseInt(this.num2); break;
+           case "-": this.num=parseInt(this.num1) - parseInt(this.num2); break;
+           case "*" : this.num=parseInt(this.num1) * parseInt(this.num2); break;
+           case "/": this.num=parseInt(this.num1) / parseInt(this.num2); break;
+        //    除了123，别忘了加""
+        }
+           
+    }
+       }
+      })
+     
+     </script>
+</body>
+</html>

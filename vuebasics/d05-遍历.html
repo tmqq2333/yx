@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <style>
+   button{
+     border:solid 1px hotpink;
+     width: 20px;
+     height: 20px;
+     user-select:none;
+   }
+
+
+  </style>
+</head>
+<body>
+  <div id="a">
+   <div v-for="(user,index) in user":key="index">
+       <!--(user,index)index是索引号  key后唯一标识符,index在循环后属性添加-->
+       <!-- 实现:可以在vue实例化的时候指定要遍历的数据,然后通过v-for指令在模板中遍历显示数据。一般情况下 ,要遍
+历的数据可以通过钩子函数created发送异步请求获取数据。
+ -->
+      {{index}}-- {{user.name}}--{{user.age}}--{{user.msg}}
+   </div>
+   <br>
+   <div v-for="(value,key,index) in proment">
+       <!-- key属性，另一种写法 -->
+   {{value}}-- {{key}}--{{index}}
+  </div>
+ 
+  </div>
+  <script>
+   new Vue({            
+   el:"#a",            
+   data:{           
+      user:[
+          {name:"77",age:"28",msg:"重新开始"},
+          {name:"龙",age:"16",msg:"天天"},
+          {name:"马",age:"17",msg:"配乐"},
+          {name:"狐",age:"28",msg:"歌舞"}
+      ],
+      proment:{name:"人",age:"30",msg:"对象",adress:"中国"}
+
+   },
+ 
+ })
+
+</script>
+</body>
+</html>

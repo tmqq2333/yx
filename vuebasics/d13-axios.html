@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://unpkg.com/vue/dist/vue.js"></script> -->
+  <script src="js/vue.js"></script>
+  <script src="js/axios.min.js"></script>
+  <!-- 服务端不能../  要用端口打开 -->
+  <style>
+   button{
+     border:solid 1px hotpink;
+     width: 20px;
+     height: 20px;
+     user-select:none;
+   }
+
+
+  </style>
+</head>
+<body>
+  <div id="a">
+   <div v-for="(user,index) in users":key="index">
+      
+      {{index}}-- {{user.name}}--{{user.age}}--{{user.msg}}
+   </div>
+   
+  
+ 
+  </div>
+  <script>
+  var app = new Vue({            
+   el:"#a",            
+   data:{           
+      users:[]
+      
+
+   },
+   created() {
+    //   这里可以 this
+    //    钩子函数，初始化加载数据
+
+    // 第一种
+//     axios({
+//         url:"axios.json",
+//         methon:"post"
+//     }).then(res=>{
+//          console.log("res");
+//         //  将数据赋值到vue实例中的数据属性users
+//        // axios不能使用this，在axios回调函数中表示窗口，不是vue实例
+
+//          app.users=res.data;
+//     }).catch(err=>alert(err))
+//     // 不能静态文件访问数据，需要服务器
+//    },
+
+     // 第二种
+//    axios.get("axios.json").then(res=>{
+//          console.log("res");
+//         //  将数据赋值到vue实例中的数据属性users
+//        // axios不能使用this，在axios回调函数中表示窗口，不是vue实例
+
+//          app.users=res.data;
+//     }).catch(err=>alert(err))
+//     // 不能静态文件访问数据，需要服务器
+//    },
+
+
+     //第三种
+     const qs=Request('qs');
+         axios.post("axios.json",qs.stringify({})).then(res=>{
+         console.log("res");
+        //  将数据赋值到vue实例中的数据属性users
+       // axios不能使用this，在axios回调函数中表示窗口，不是vue实例
+
+         app.users=res.data;
+    }).catch(err=>alert(err))
+    // 不能静态文件访问数据，需要服务器
+    // 还可以跨域请求
+   },
+ 
+ })
+
+</script>
+</body>
+</html>
