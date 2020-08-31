@@ -1,0 +1,10 @@
+/* pages/lxwm/lxwm.wxss */
+
+.box{
+  width: 100%;
+  
+}
+image{
+  width: 100%;
+  
+}

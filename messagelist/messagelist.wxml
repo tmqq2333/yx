@@ -1,0 +1,16 @@
+<!--pages/myorder/myorder.wxml-->
+<view class="container">
+	<view class="prolistbox">
+		<block wx:for="{{messagelist}}" wx:key="key" wx:for-index="index" wx:for-item="item">
+			<view class="proitem" bindtap="fngotoorder" data-id="{{item.id}}" hover-class="itemhover" style="margin-top:20rpx;">
+				<view class="proname">{{item.truename}} </view>
+				<view class="info">
+					<view class="a1">留言：{{item.text}}</view>
+         <view></view>
+					<view class="a1">{{mss}} {{item.reply}}</view>
+
+				</view>
+			</view>
+		</block>
+	</view>
+</view>

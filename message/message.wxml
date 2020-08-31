@@ -1,0 +1,10 @@
+<!--pages/message/message.wxml-->
+<view class="box">
+	<view class="bcimg">
+		<image src="/pages/img/reg01.jpg" mode="widthFix"/>
+	</view>
+	<textarea class="tt" bindinput="fntext" placeholder="请提出你的宝贵意见："></textarea>
+	<button bindtap="fntii" class="box1">提交</button>
+	<button bindtap="fnccc" style="margin-top: 10px;" class="box2">查看留言</button>
+	{{msg}}
+</view>

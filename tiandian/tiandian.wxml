@@ -1,0 +1,29 @@
+<!--pages/foodlist/food.wxml-->
+<!--pages/foodlist/foodlist.wxml-->
+<view class="main">
+	<view class="container">
+	<!-- 搜索开始 -->
+	<!-- <view class="searchbox">
+		<image src="/pages/img/s3.png" mode="widthFix" />
+		<input type="text" placeholder="搜美食，菜谱" value="{{key}}" bindinput="fnsearchinputchange" />
+	</view> -->
+	<!-- 搜索结束 -->
+	<view class="listbox">
+		<block wx:for="{{tiandianlist}}" wx:key="key" wx:for-index="index" wx:for-item="item">
+			<view class="fooditem" hover-class="itemhover" data-id="{{item.id}}" bindtap="fngotofoodview">
+				<image src="{{urlhead}}/static/uploadimg/{{item.imgurl}}" mode="widthFix" />
+				<view class="rightbox">
+					<view class="line1">{{item.proname}}</view>
+					<view class="line2">{{item.probrief}}</view>
+					<view class="line3">￥{{item.proprice}}.00/份</view>
+					<view class="line4"><text>精品</text><text>优选</text><text>热销</text></view>
+				</view>
+			</view>
+		</block> 
+
+
+
+
+	</view>
+</view>
+</view>

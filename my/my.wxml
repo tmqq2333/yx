@@ -1,0 +1,40 @@
+<!--pages/my/my.wxml-->
+
+<view id="plbox">
+	<image src="/pages/img/wd1.jpg" />
+	<view id="bigbox" mode="widthFix">
+		<!-- <view class="tisi" bindtap="denlu">{{mmg}}</view> -->
+		<view class="box5" bindtap="fndenglu">
+		<image class="img" src="/pages/img/zly.jpg"  mode="widthFix"/>
+		</view>
+		
+		<view class="boxa">
+			<view class="title">{{currentusertruename}}</view>
+			<view class="subtitle">{{currentusertruetel}}</view>
+		</view>
+
+		<view class="box2">
+			<view class="item" id="item1" hover-class="hoveritem" bindtap="fngotomyorder" bindtap="fngotomyorder">
+				<image src="/pages/img/dd.png" mode="widthFix" />
+				<view class="rightbox" bindtap="fngotomyorder">订单</view>
+			</view>
+			<view class="item" hover-class="hoveritem" id="item2" bindtap="fnmm">
+				<image src="/pages/img/my_27.png" mode="widthFix" />
+				<view class="rightbox" bindtap="fnmm">留言</view>
+			</view>
+			<view class="item" hover-class="hoveritem" id="item3" bindtap="fngr">
+				<image src="/pages/img/gr.png" mode="widthFix" />
+				<view class="rightbox" bindtap="fngr">个人</view>
+			</view>
+			<view class="item" hover-class="hoveritem" bindtap="fnlogout" id="item4" bindtap="fntc">
+				<image src="/pages/img/tc.png" mode="widthFix" />
+				<view class="rightbox">退出</view>
+			</view>
+		</view>
+
+	</view>
+
+</view>
+
+<view class="lxwm" bindtap="fnlianxi">联系我们</view>
+<view class="lxwm2"></view>

@@ -1,0 +1,16 @@
+
+<!-- bindtap是点击按钮函数 fnclick是任意取的函数名称 当鼠标点击'点击我'的时候会触发写在test.js里面的fnclick函数，就会执行里面的代码 -->
+<view class="btn" bindtap="fnclick">点击我</view>
+{{tbname}}
+
+<!-- 当鼠标点击'跳转'的时候会触发写在test.js里面的fnclick3函数，就会执行里面的代码 -->
+<view class="btn" bindtap="fnclick3">跳转</view>
+
+<input type="text" bindinput="fnchange" name="a1" class="a1"/>
+{{msg}}
+
+
+
+
+
+			

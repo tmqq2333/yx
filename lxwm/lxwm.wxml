@@ -1,0 +1,5 @@
+<!--pages/lxwm/lxwm.wxml-->
+<view class="box">
+<image src="/pages/img/pt.jpg" mode="widthFix"></image>
+</view>
+
