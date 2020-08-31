@@ -1,0 +1,55 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/shopcar/shopcar",
+    "pages/login/login",
+    "pages/test/test",
+    "pages/foodview/foodview",
+    "pages/myorder/myorder",
+    "pages/logs/logs",
+    "pages/foodlist/food",
+    "pages/cooker/cooker",
+    "pages/my/my",
+    "pages/tiandian/tiandian",
+    "pages/reg/reg",
+    "pages/tiandianview/tiandianview",
+    "pages/message/message",
+    "pages/messagelist/messagelist",
+    "pages/geren/geren",
+    "pages/lxwm/lxwm",
+    "pages/canyan/canyan"
+  ],
+  "tabBar": {
+    "backgroundColor": "#F5F5F5",
+    "list": [
+      {
+        "selectedIconPath": "pages/img/tab1-b.png",
+        "iconPath": "pages/img/tab1-a.png",
+        "pagePath": "pages/index/index"
+      },
+      {
+        "selectedIconPath": "pages/img/tab2-b.png",
+        "iconPath": "pages/img/tab2-a.png",
+        "pagePath": "pages/foodlist/food"
+      },
+      {
+        "selectedIconPath": "pages/img/tab3-b.png",
+        "iconPath": "pages/img/tab3-a.png",
+        "pagePath": "pages/shopcar/shopcar"
+      },
+      {
+        "selectedIconPath": "pages/img/tab4-b.png",
+        "iconPath": "pages/img/tab4-a.png",
+        "pagePath": "pages/my/my"
+      }
+    ]
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#C0C0C0",
+    "navigationBarTitleText": "食客云来香满楼",
+    "navigationBarTextStyle": "white"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}
